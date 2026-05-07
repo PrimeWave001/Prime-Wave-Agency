@@ -75,7 +75,7 @@ function HomePage() {
               <Link to="/portfolio" className="border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-md hover:bg-white hover:text-navy transition text-center">View Our Work</Link>
             </div>
             <div className="flex flex-wrap gap-6 mt-10 text-sm">
-              <div className="flex items-center gap-2"><span className="text-gold font-bold text-lg">50+</span><span className="text-white/70">Projects</span></div>
+              <div className="flex items-center gap-2"><span className="text-gold font-bold text-lg">15+</span><span className="text-white/70">Projects</span></div>
               <div className="flex items-center gap-2"><span className="text-gold font-bold text-lg">80+</span><span className="text-white/70">Clients</span></div>
               <div className="flex items-center gap-2"><span className="text-gold font-bold text-lg">98%</span><span className="text-white/70">Satisfaction</span></div>
             </div>
@@ -96,7 +96,7 @@ function HomePage() {
       <section className="bg-gold text-white py-14">
         <div className="container-pw grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {[
-            { v: 50, s: "+", l: "Projects Completed" },
+            { v: 15, s: "+", l: "Projects Completed" },
             { v: 80, s: "+", l: "Happy Clients" },
             { v: 5, s: "+", l: "Years Experience" },
             { v: 98, s: "%", l: "Client Satisfaction" },
