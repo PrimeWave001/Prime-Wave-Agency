@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Send, Loader2 } from "lucide-react";
-import { askAI } from "@/server/ai.functions";
+import { askAI } from "@/utils/ai.functions";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
