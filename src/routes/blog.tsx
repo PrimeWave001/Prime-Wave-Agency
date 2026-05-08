@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
 import { ArrowRight } from "lucide-react";
+import { posts } from "@/data/posts";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -14,15 +15,6 @@ export const Route = createFileRoute("/blog")({
   }),
   component: Blog,
 });
-
-const posts = [
-  { cat: "Web Design", title: "5 Reasons Your Website Is Losing Clients and How to Fix It", excerpt: "If your website looks great but isn't bringing in leads, these are the five culprits behind it." },
-  { cat: "SEO", title: "How to Rank on Google in 2025 Without Spending on Ads", excerpt: "Modern SEO is about intent, speed and trust. Here's the playbook." },
-  { cat: "Business", title: "Why Every Small Business Needs a Professional Website in 2025", excerpt: "Your website is your hardest-working employee. Here's why DIY isn't enough anymore." },
-  { cat: "WhatsApp", title: "How WhatsApp Automation Can Double Your Restaurant Sales", excerpt: "Automated bookings, menus, and order confirmations turn chats into revenue." },
-  { cat: "Design", title: "The Psychology of Color in Web Design and Why It Matters", excerpt: "Color choices influence trust, action and recall. Use them strategically." },
-  { cat: "Ecommerce", title: "7 Things Your Online Store Must Have to Convert Visitors into Buyers", excerpt: "From trust badges to checkout speed — the essentials of a converting store." },
-];
 
 function Blog() {
   return (
@@ -38,7 +30,7 @@ function Blog() {
       <section className="bg-white py-24">
         <div className="container-pw grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((p, i) => (
-            <ScrollReveal key={p.title} delay={i * 60}>
+            <ScrollReveal key={p.slug} delay={i * 60}>
               <article className="bg-surface rounded-2xl border border-border overflow-hidden h-full flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all">
                 <div className="h-44 bg-gradient-to-br from-navy to-[#2a3a5e] relative">
                   <div className="absolute inset-0 bg-grid opacity-40" />
@@ -47,7 +39,9 @@ function Blog() {
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-lg text-navy leading-snug">{p.title}</h3>
                   <p className="mt-3 text-sm text-muted-foreground flex-1">{p.excerpt}</p>
-                  <button className="inline-flex items-center gap-2 mt-5 text-sm font-semibold text-gold hover:gap-3 transition-all w-fit">Read More <ArrowRight size={16} /></button>
+                  <Link to="/posts/$slug" params={{ slug: p.slug }} className="inline-flex items-center gap-2 mt-5 text-sm font-semibold text-gold hover:gap-3 transition-all w-fit">
+                    Read More <ArrowRight size={16} />
+                  </Link>
                 </div>
               </article>
             </ScrollReveal>
