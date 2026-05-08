@@ -61,16 +61,16 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "rank-on-google-2025-without-ads",
+    slug: "rank-on-google-2026-without-ads",
     cat: "SEO",
-    title: "How to Rank on Google in 2025 Without Spending on Ads",
+    title: "How to Rank on Google in 2026 Without Spending on Ads",
     excerpt: "Modern SEO is about intent, speed and trust. Here's the playbook.",
     readTime: "7 min read",
     body: [
       {
         heading: "SEO Is Not Dead — It Just Got Smarter",
         paragraphs: [
-          "Every year someone declares SEO over. And every year, businesses that invest in it quietly compound traffic while competitors burn cash on ads. In 2025, ranking on Google is less about keyword stuffing and more about being genuinely the best answer for a specific intent.",
+          "Every year someone declares SEO over. And every year, businesses that invest in it quietly compound traffic while competitors burn cash on ads. In 2026, ranking on Google is less about keyword stuffing and more about being genuinely the best answer for a specific intent.",
         ],
       },
       {
@@ -115,14 +115,14 @@ export const posts: Post[] = [
   {
     slug: "why-small-business-needs-professional-website",
     cat: "Business",
-    title: "Why Every Small Business Needs a Professional Website in 2025",
+    title: "Why Every Small Business Needs a Professional Website in 2026",
     excerpt: "Your website is your hardest-working employee. Here's why DIY isn't enough anymore.",
     readTime: "5 min read",
     body: [
       {
         heading: "The Days of 'I'll Just Use a Free Builder' Are Over",
         paragraphs: [
-          "Drag-and-drop builders promise a website in an afternoon. The result usually looks like every other site on that platform, loads slowly, ranks poorly, and converts even worse. In 2025, customers expect more — and your competitors are happy to deliver it.",
+          "Drag-and-drop builders promise a website in an afternoon. The result usually looks like every other site on that platform, loads slowly, ranks poorly, and converts even worse. In 2026, customers expect more — and your competitors are happy to deliver it.",
         ],
       },
       {
@@ -167,7 +167,7 @@ export const posts: Post[] = [
       {
         heading: "Your Customers Already Live on WhatsApp",
         paragraphs: [
-          "More than 2 billion people use WhatsApp every day. For restaurants, this is not just another marketing channel — it's where your customers actually communicate. The restaurants that win in 2025 meet customers in the channel they already prefer, and they do it without hiring extra staff.",
+          "More than 2 billion people use WhatsApp every day. For restaurants, this is not just another marketing channel — it's where your customers actually communicate. The restaurants that win in 2026 meet customers in the channel they already prefer, and they do it without hiring extra staff.",
         ],
       },
       {
@@ -263,7 +263,7 @@ export const posts: Post[] = [
       {
         heading: "Traffic Is Not the Problem — Conversion Is",
         paragraphs: [
-          "Most ecommerce founders pour money into ads and influencer campaigns while their store converts at under 1%. The fix isn't more traffic — it's plugging the leaks. Here are the seven essentials every converting store has in 2025.",
+          "Most ecommerce founders pour money into ads and influencer campaigns while their store converts at under 1%. The fix isn't more traffic — it's plugging the leaks. Here are the seven essentials every converting store has in 2026.",
         ],
       },
       {

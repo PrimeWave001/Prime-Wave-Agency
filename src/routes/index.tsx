@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import founder from "@/assets/founder.png";
+import founder from "@/assets/founder.jpg";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { WaveDivider } from "@/components/WaveDivider";
@@ -82,10 +82,8 @@ function HomePage() {
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-gold/30 to-transparent rounded-3xl blur-2xl" />
-              <div className="relative rounded-2xl overflow-hidden border-2 border-gold/30 bg-white/5 animate-float">
-                <img src={founder} alt="Marcus Derrick, Founder" className="w-full h-auto" />
-              </div>
+              <div className="absolute -inset-4 bg-gradient-to-tr from-gold/30 to-transparent rounded-2xl blur-2xl" />
+              <img src={founder} alt="Marcus Derrick, Founder" className="relative rounded-2xl shadow-2xl border-2 border-gold/30 bg-navy w-full h-auto animate-float" />
             </div>
           </ScrollReveal>
         </div>

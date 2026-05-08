@@ -34,7 +34,9 @@ export function Header() {
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${transparent ? "bg-transparent" : "bg-white/95 backdrop-blur shadow-sm"}`}>
       <div className="container-pw flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Prime Wave Agency" className="h-12 w-auto" />
+          <span className="inline-flex items-center justify-center bg-navy rounded-lg px-3 py-1.5 shadow-sm">
+            <img src={logo} alt="Prime Wave Agency" className="h-10 w-auto" />
+          </span>
         </Link>
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((l) => (
