@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import founder from "@/assets/founder.png";
+import founder from "@/assets/founder.jpg";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { WaveDivider } from "@/components/WaveDivider";
