@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, MessageCircle, Mail } from "lucide-react";
-import { getPost, posts } from "@/data/posts";
+import { getPost, posts, type Post } from "@/data/posts";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
 
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/posts/$slug")({
 });
 
 function PostPage() {
-  const post = Route.useLoaderData();
+  const post = Route.useLoaderData() as Post;
   const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
   return (
     <>

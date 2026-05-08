@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Instagram, MessageCircle, Send } from "lucide-react";
+import { Mail, Instagram, MessageCircle, Send, Linkedin } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 export function Footer() {
@@ -43,6 +43,7 @@ export function Footer() {
             <a href="https://instagram.com/primewave301" target="_blank" rel="noopener" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><Instagram size={16} /></a>
             <a href="mailto:info.primewaveagency@gmail.com" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><Mail size={16} /></a>
             <a href="https://t.me/primewave2" target="_blank" rel="noopener" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><Send size={16} /></a>
+            <a href="https://linkedin.com/company/primewaveagency" target="_blank" rel="noopener" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><Linkedin size={16} /></a>
           </div>
         </div>
       </div>
