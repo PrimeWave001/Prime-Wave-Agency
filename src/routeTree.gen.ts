@@ -22,59 +22,37 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PostsSlugRouteImport } from './routes/posts.$slug'
 
 const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
+  id: '/services', path: '/services', getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
+  id: '/pricing', path: '/pricing', getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioRoute = PortfolioRouteImport.update({
-  id: '/portfolio',
-  path: '/portfolio',
-  getParentRoute: () => rootRouteImport,
+  id: '/portfolio', path: '/portfolio', getParentRoute: () => rootRouteImport,
 } as any)
 const FreeAuditRoute = FreeAuditRouteImport.update({
-  id: '/free-audit',
-  path: '/free-audit',
-  getParentRoute: () => rootRouteImport,
+  id: '/free-audit', path: '/free-audit', getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
+  id: '/faq', path: '/faq', getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
+  id: '/contact', path: '/contact', getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
-  id: '/case-studies',
-  path: '/case-studies',
-  getParentRoute: () => rootRouteImport,
+  id: '/case-studies', path: '/case-studies', getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
+  id: '/blog', path: '/blog', getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
+  id: '/about', path: '/about', getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
+  id: '/', path: '/', getParentRoute: () => rootRouteImport,
 } as any)
 const PostsSlugRoute = PostsSlugRouteImport.update({
-  id: '/posts/$slug',
-  path: '/posts/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/posts/$slug', path: '/posts/$slug', getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -120,43 +98,15 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/about'
-    | '/blog'
-    | '/case-studies'
-    | '/contact'
-    | '/faq'
-    | '/free-audit'
-    | '/portfolio'
-    | '/pricing'
-    | '/services'
-    | '/posts/$slug'
+    | '/' | '/about' | '/blog' | '/case-studies' | '/contact' | '/faq'
+    | '/free-audit' | '/portfolio' | '/pricing' | '/services' | '/posts/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/about'
-    | '/blog'
-    | '/case-studies'
-    | '/contact'
-    | '/faq'
-    | '/free-audit'
-    | '/portfolio'
-    | '/pricing'
-    | '/services'
-    | '/posts/$slug'
+    | '/' | '/about' | '/blog' | '/case-studies' | '/contact' | '/faq'
+    | '/free-audit' | '/portfolio' | '/pricing' | '/services' | '/posts/$slug'
   id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/blog'
-    | '/case-studies'
-    | '/contact'
-    | '/faq'
-    | '/free-audit'
-    | '/portfolio'
-    | '/pricing'
-    | '/services'
-    | '/posts/$slug'
+    | '__root__' | '/' | '/about' | '/blog' | '/case-studies' | '/contact'
+    | '/faq' | '/free-audit' | '/portfolio' | '/pricing' | '/services' | '/posts/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -175,98 +125,23 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portfolio': {
-      id: '/portfolio'
-      path: '/portfolio'
-      fullPath: '/portfolio'
-      preLoaderRoute: typeof PortfolioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/free-audit': {
-      id: '/free-audit'
-      path: '/free-audit'
-      fullPath: '/free-audit'
-      preLoaderRoute: typeof FreeAuditRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies': {
-      id: '/case-studies'
-      path: '/case-studies'
-      fullPath: '/case-studies'
-      preLoaderRoute: typeof CaseStudiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/posts/$slug': {
-      id: '/posts/$slug'
-      path: '/posts/$slug'
-      fullPath: '/posts/$slug'
-      preLoaderRoute: typeof PostsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
+    '/services': { id: '/services'; path: '/services'; fullPath: '/services'; preLoaderRoute: typeof ServicesRouteImport; parentRoute: typeof rootRouteImport }
+    '/pricing': { id: '/pricing'; path: '/pricing'; fullPath: '/pricing'; preLoaderRoute: typeof PricingRouteImport; parentRoute: typeof rootRouteImport }
+    '/portfolio': { id: '/portfolio'; path: '/portfolio'; fullPath: '/portfolio'; preLoaderRoute: typeof PortfolioRouteImport; parentRoute: typeof rootRouteImport }
+    '/free-audit': { id: '/free-audit'; path: '/free-audit'; fullPath: '/free-audit'; preLoaderRoute: typeof FreeAuditRouteImport; parentRoute: typeof rootRouteImport }
+    '/faq': { id: '/faq'; path: '/faq'; fullPath: '/faq'; preLoaderRoute: typeof FaqRouteImport; parentRoute: typeof rootRouteImport }
+    '/contact': { id: '/contact'; path: '/contact'; fullPath: '/contact'; preLoaderRoute: typeof ContactRouteImport; parentRoute: typeof rootRouteImport }
+    '/case-studies': { id: '/case-studies'; path: '/case-studies'; fullPath: '/case-studies'; preLoaderRoute: typeof CaseStudiesRouteImport; parentRoute: typeof rootRouteImport }
+    '/blog': { id: '/blog'; path: '/blog'; fullPath: '/blog'; preLoaderRoute: typeof BlogRouteImport; parentRoute: typeof rootRouteImport }
+    '/about': { id: '/about'; path: '/about'; fullPath: '/about'; preLoaderRoute: typeof AboutRouteImport; parentRoute: typeof rootRouteImport }
+    '/': { id: '/'; path: '/'; fullPath: '/'; preLoaderRoute: typeof IndexRouteImport; parentRoute: typeof rootRouteImport }
+    '/posts/$slug': { id: '/posts/$slug'; path: '/posts/$slug'; fullPath: '/posts/$slug'; preLoaderRoute: typeof PostsSlugRouteImport; parentRoute: typeof rootRouteImport }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  BlogRoute: BlogRoute,
-  CaseStudiesRoute: CaseStudiesRoute,
-  ContactRoute: ContactRoute,
-  FaqRoute: FaqRoute,
-  FreeAuditRoute: FreeAuditRoute,
-  PortfolioRoute: PortfolioRoute,
-  PricingRoute: PricingRoute,
-  ServicesRoute: ServicesRoute,
-  PostsSlugRoute: PostsSlugRoute,
+  IndexRoute, AboutRoute, BlogRoute, CaseStudiesRoute, ContactRoute, FaqRoute,
+  FreeAuditRoute, PortfolioRoute, PricingRoute, ServicesRoute, PostsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
