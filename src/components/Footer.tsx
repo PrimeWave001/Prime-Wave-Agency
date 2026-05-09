@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="bg-navy text-white border-t-4 border-gold">
       <div className="container-pw py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
-          <img src={logo} alt="Prime Wave" className="h-14 w-auto mb-4 bg-white/5 rounded p-1" />
+          <img src={logo} alt="Prime Wave" className="h-16 w-auto mb-4" />
           <p className="text-white/70 text-sm leading-relaxed">Building premium digital experiences that convert.</p>
         </div>
         <div>
@@ -15,18 +15,21 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-white/80">
             <li><Link to="/" className="hover:text-gold">Home</Link></li>
             <li><Link to="/about" className="hover:text-gold">About</Link></li>
+            <li><Link to="/services" className="hover:text-gold">Services</Link></li>
             <li><Link to="/portfolio" className="hover:text-gold">Portfolio</Link></li>
             <li><Link to="/blog" className="hover:text-gold">Blog</Link></li>
             <li><Link to="/faq" className="hover:text-gold">FAQ</Link></li>
+            <li><Link to="/contact" className="hover:text-gold">Contact</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">Services</h4>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">More</h4>
           <ul className="space-y-2 text-sm text-white/80">
-            <li><Link to="/services" className="hover:text-gold">Web Design & Development</Link></li>
-            <li><Link to="/services" className="hover:text-gold">UI/UX Design</Link></li>
+            <li><Link to="/case-studies" className="hover:text-gold">Case Studies</Link></li>
+            <li><Link to="/pricing" className="hover:text-gold">Pricing</Link></li>
+            <li><Link to="/free-audit" className="hover:text-gold">Free Audit</Link></li>
+            <li><Link to="/services" className="hover:text-gold">Web Design</Link></li>
             <li><Link to="/services" className="hover:text-gold">Technical SEO</Link></li>
-            <li><Link to="/services" className="hover:text-gold">Ecommerce</Link></li>
             <li><Link to="/services" className="hover:text-gold">WhatsApp Automation</Link></li>
           </ul>
         </div>
@@ -34,7 +37,7 @@ export function Footer() {
           <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">Connect</h4>
           <ul className="space-y-2 text-sm text-white/80">
             <li className="flex items-center gap-2"><MessageCircle size={16} className="text-gold" /> +1 226 855 6194</li>
-            <li className="flex items-center gap-2"><Mail size={16} className="text-gold" /> info.primewaveagency@gmail.com</li>
+            <li className="flex items-center gap-2"><Mail size={16} className="text-gold" />info.primewaveagency@gmail.com</li>
             <li className="flex items-center gap-2"><Instagram size={16} className="text-gold" /> @primewave301</li>
             <li className="flex items-center gap-2"><Send size={16} className="text-gold" /> @primewave2</li>
           </ul>

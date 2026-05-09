@@ -31,19 +31,17 @@ export function Header() {
   const transparent = isHome && !scrolled;
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${transparent ? "bg-transparent" : "bg-white/95 backdrop-blur shadow-sm"}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${transparent ? "bg-transparent" : "bg-navy/95 backdrop-blur shadow-md"}`}>
       <div className="container-pw flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-3">
-          <span className="inline-flex items-center justify-center bg-navy rounded-lg px-3 py-1.5 shadow-sm">
-            <img src={logo} alt="Prime Wave Agency" className="h-10 w-auto" />
-          </span>
+          <img src={logo} alt="Prime Wave Agency" className="h-12 w-auto" />
         </Link>
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className={`text-sm font-medium transition-colors hover:text-gold ${transparent ? "text-white/90" : "text-navy"}`}
+              className="text-sm font-medium text-white/90 hover:text-gold transition-colors"
               activeProps={{ className: "text-gold" }}
             >
               {l.label}
@@ -53,14 +51,14 @@ export function Header() {
             Get a Free Proposal
           </Link>
         </nav>
-        <button className={`lg:hidden ${transparent ? "text-white" : "text-navy"}`} onClick={() => setOpen((o) => !o)} aria-label="Menu">
+        <button className="lg:hidden text-white" onClick={() => setOpen((o) => !o)} aria-label="Menu">
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
-      <div className={`lg:hidden bg-white border-t transition-all duration-300 overflow-hidden ${open ? "max-h-[600px]" : "max-h-0"}`}>
+      <div className={`lg:hidden bg-navy border-t border-white/10 transition-all duration-300 overflow-hidden ${open ? "max-h-[600px]" : "max-h-0"}`}>
         <div className="container-pw flex flex-col py-4 gap-3">
           {navLinks.map((l) => (
-            <Link key={l.to} to={l.to} className="text-navy py-2 font-medium" activeProps={{ className: "text-gold" }}>
+            <Link key={l.to} to={l.to} className="text-white py-2 font-medium" activeProps={{ className: "text-gold" }}>
               {l.label}
             </Link>
           ))}
