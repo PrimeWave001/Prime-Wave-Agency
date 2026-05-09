@@ -7,7 +7,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Prime Wave Agency" },
-      { name: "description", content: "Let's talk about your project. WhatsApp, email or use the form — we reply within 24 hours." },
+      { name: "description", content: "Let's talk about your project. WhatsApp, email or use the form, we reply within 24 hours." },
       { property: "og:title", content: "Contact Prime Wave Agency" },
       { property: "og:description", content: "Let us talk about your project." },
     ],
