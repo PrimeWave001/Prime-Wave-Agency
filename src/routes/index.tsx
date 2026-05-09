@@ -5,35 +5,44 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { WaveDivider } from "@/components/WaveDivider";
 import { CTASection } from "@/components/CTASection";
-import { AIChat } from "@/components/AIChat";
 import {
   Code2, Palette, Search, ShoppingBag, MessageSquare, Wrench,
   Star, ArrowRight, ExternalLink, Award, Target, Handshake, Sparkles,
+  Clock, Smartphone, TrendingUp, UserCheck, DollarSign, ShieldCheck,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Prime Wave Agency — Build a Powerful Online Presence" },
-      { name: "description", content: "Premium web design, SEO and ecommerce. We build modern, high-performing websites that convert." },
+      { name: "description", content: "Premium web design, SEO and ecommerce. We build modern, high performing websites that convert." },
       { property: "og:title", content: "Prime Wave Agency — Premium Web Design" },
-      { property: "og:description", content: "We design modern, high-performing websites that help businesses grow." },
+      { property: "og:description", content: "We design modern, high performing websites that help businesses grow." },
     ],
   }),
   component: HomePage,
 });
 
 const services = [
-  { icon: Code2, title: "Web Design & Development", desc: "Modern, fast, conversion-focused websites built on the platform that fits your goals." },
+  { icon: Code2, title: "Web Design & Development", desc: "Modern, fast, conversion focused websites built on the platform that fits your goals." },
   { icon: Palette, title: "UI/UX Design & Redesign", desc: "Beautiful, intuitive interfaces that turn visitors into loyal customers." },
-  { icon: Search, title: "Technical SEO & Auditing", desc: "Get found on Google with on-page SEO, schema markup and Core Web Vitals optimization." },
+  { icon: Search, title: "Technical SEO & Auditing", desc: "Get found on Google with on page SEO, schema markup and Core Web Vitals optimization." },
   { icon: ShoppingBag, title: "Ecommerce Development", desc: "Shopify and WooCommerce stores designed to maximize average order value." },
   { icon: MessageSquare, title: "WhatsApp Automation Bot", desc: "24/7 customer service and lead capture with intelligent WhatsApp automation." },
   { icon: Wrench, title: "Maintenance & Support", desc: "Keep your site fast, secure and updated with monthly care plans from $99." },
 ];
 
+const whyUs = [
+  { icon: Clock, title: "We Deliver on Time, Every Time", desc: "Clear timelines and weekly progress updates so you always know exactly where your project stands." },
+  { icon: Smartphone, title: "Mobile First Design Always", desc: "Every site is engineered for mobile from day one because that is where most of your visitors live." },
+  { icon: TrendingUp, title: "SEO Built In From Day One", desc: "Technical SEO, schema and Core Web Vitals are baked into every build, not bolted on later." },
+  { icon: UserCheck, title: "Direct Access to the Founder", desc: "You work directly with Marcus throughout the project. No account managers, no outsourcing." },
+  { icon: DollarSign, title: "Transparent Pricing No Surprises", desc: "Honest, upfront pricing on every quote. What we agree on is what you pay." },
+  { icon: ShieldCheck, title: "100% Satisfaction Guaranteed", desc: "We refine until you are thrilled. Your reputation is our reputation." },
+];
+
 const portfolio = [
-  { url: "brightchatter.com", platform: "Duda", type: "Redesign", desc: "Brand-aligned redesign with refined IA and faster load times." },
+  { url: "brightchatter.com", platform: "Duda", type: "Redesign", desc: "Brand aligned redesign with refined IA and faster load times." },
   { url: "mikesplumbingchicago.com", platform: "WordPress", type: "Full Design", desc: "Local service site engineered for lead generation." },
   { url: "stamperrealtyservices.com", platform: "WordPress", type: "Full Design", desc: "Premium real estate site with custom property modules." },
   { url: "mrs-legal.com", platform: "WordPress", type: "Migration", desc: "Seamless migration with zero downtime and improved speed." },
@@ -57,18 +66,42 @@ function HomePage() {
 
   return (
     <>
-      {/* HERO */}
+      {/* SECTION 1: HERO */}
       <section className="relative min-h-screen bg-navy text-white overflow-hidden flex items-center pt-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-[#1a2440] to-[#2a3760]" />
         <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-[#15203a]" style={{ opacity: 0.7 }} />
+        {/* floating shapes */}
+        <div aria-hidden className="absolute top-24 left-10 w-40 h-40 rounded-full bg-gold/10 blur-2xl float-shape" />
+        <div aria-hidden className="absolute bottom-20 right-10 w-56 h-56 rounded-full bg-gold/10 blur-3xl float-shape-2" />
+        <div aria-hidden className="absolute top-40 right-1/3 w-24 h-24 rotate-45 bg-gold/5 border border-gold/20 float-shape" />
+        <div aria-hidden className="absolute bottom-32 left-1/4 w-16 h-16 rotate-12 bg-gold/10 rounded-xl float-shape-2" />
+        {/* particles */}
+        <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
+          {Array.from({ length: 18 }).map((_, i) => (
+            <span
+              key={i}
+              className="particle absolute block w-1 h-1 rounded-full bg-gold/60"
+              style={{
+                left: `${(i * 53) % 100}%`,
+                bottom: `-${(i * 7) % 30}px`,
+                animationDuration: `${10 + ((i * 3) % 14)}s`,
+                animationDelay: `${(i * 0.7) % 8}s`,
+              }}
+            />
+          ))}
+        </div>
+
         <div className="container-pw relative grid lg:grid-cols-2 gap-12 items-center py-16">
           <ScrollReveal>
-            <span className="label-accent">Premium Web Agency</span>
-            <h1 className="text-4xl md:text-6xl mt-3 leading-[1.05]">
+            <span className="badge-pulse inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+              Now Accepting New Clients
+            </span>
+            <h1 className="text-5xl md:text-7xl mt-5 leading-[1.02] font-bold">
               Build a Powerful <span className="text-gradient-gold">Online Presence</span> That Converts
             </h1>
             <p className="mt-6 text-lg text-white/75 max-w-xl">
-              We design modern, high-performing websites that help businesses grow, attract clients and stand out.
+              We design modern, high performing websites that help businesses grow, attract clients and stand out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-lg text-center">Get a Free Proposal</Link>
@@ -90,7 +123,7 @@ function HomePage() {
       </section>
       <WaveDivider from="var(--navy)" to="#D37B29" />
 
-      {/* STATS */}
+      {/* SECTION 2: STATS */}
       <section className="bg-gold text-white py-14">
         <div className="container-pw grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {[
@@ -107,29 +140,20 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ABOUT SUMMARY */}
+      {/* SECTION 3: ABOUT SUMMARY (image RIGHT) */}
       <section className="bg-white py-24">
         <div className="container-pw grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal>
-            <div className="relative">
-              <div className="absolute -top-6 -left-6 w-32 h-32 border-4 border-gold rounded-2xl" />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-navy rounded-2xl" />
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img src={founder} alt="Marcus Derrick" className="w-full" />
-              </div>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={150}>
             <span className="label-accent">About Us</span>
             <h2 className="text-3xl md:text-4xl mt-3 text-navy">A Team Focused on Growth and Results</h2>
             <p className="mt-4 text-muted-foreground">Prime Wave Agency was founded with one mission: build websites that don't just look good, they perform. We combine premium design, technical excellence, and a deep understanding of what makes businesses convert.</p>
-            <p className="mt-3 text-muted-foreground">From local businesses to international brands, we help our clients win online with strategy-driven design and engineering.</p>
+            <p className="mt-3 text-muted-foreground">From local businesses to international brands, we help our clients win online with strategy driven design and engineering.</p>
             <div className="grid sm:grid-cols-2 gap-4 mt-6">
               {[
                 { i: Award, t: "Excellence First" },
                 { i: Sparkles, t: "Transparent Process" },
                 { i: Target, t: "Results Over Vanity" },
-                { i: Handshake, t: "Long-term Partner" },
+                { i: Handshake, t: "Long term Partner" },
               ].map((v) => (
                 <div key={v.t} className="flex items-center gap-3 p-4 rounded-lg bg-surface border border-border">
                   <v.i className="text-gold" size={22} />
@@ -139,10 +163,19 @@ function HomePage() {
             </div>
             <Link to="/about" className="inline-flex items-center gap-2 mt-6 text-gold font-semibold hover:gap-3 transition-all">Learn More About Us <ArrowRight size={18} /></Link>
           </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <div className="relative">
+              <div className="absolute -top-6 -right-6 w-32 h-32 border-4 border-gold rounded-2xl" />
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 border-4 border-navy rounded-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img src={founder} alt="Marcus Derrick" className="w-full" />
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* SECTION 4: SERVICES */}
       <section className="bg-surface py-24">
         <div className="container-pw">
           <ScrollReveal>
@@ -169,8 +202,34 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PORTFOLIO */}
+      {/* SECTION 5: WHY BUSINESSES CHOOSE US */}
       <section className="bg-white py-24">
+        <div className="container-pw">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="label-accent">Why Choose Prime Wave</span>
+              <h2 className="text-3xl md:text-4xl mt-3 text-navy">Why Businesses Choose Us</h2>
+              <p className="mt-3 text-muted-foreground">Six reasons clients trust Prime Wave to power their online presence.</p>
+            </div>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyUs.map((w, i) => (
+              <ScrollReveal key={w.title} delay={i * 80}>
+                <div className="group p-7 rounded-2xl bg-surface border border-border h-full hover:border-gold hover:shadow-xl transition-all">
+                  <div className="w-14 h-14 rounded-xl bg-navy text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-white transition">
+                    <w.icon size={26} />
+                  </div>
+                  <h3 className="text-lg text-navy mb-2">{w.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{w.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: PORTFOLIO */}
+      <section className="bg-surface py-24">
         <div className="container-pw">
           <ScrollReveal>
             <div className="text-center mb-14">
@@ -181,7 +240,7 @@ function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolio.map((p, i) => (
               <ScrollReveal key={p.url} delay={i * 60}>
-                <div className="bg-surface rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all group">
                   <div className="h-40 bg-gradient-to-br from-navy to-[#2a3a5e] relative flex items-center justify-center">
                     <div className="absolute inset-0 bg-grid opacity-40" />
                     <span className="relative text-white font-display font-bold text-xl">{p.url}</span>
@@ -204,7 +263,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* REVIEWS */}
+      {/* SECTION 7: REVIEWS */}
       <section className="bg-navy text-white py-24">
         <div className="container-pw text-center">
           <ScrollReveal>
@@ -221,7 +280,7 @@ function HomePage() {
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
                   <div className="flex justify-center mb-4">{[...Array(5)].map((_, k) => <Star key={k} size={18} className="fill-gold text-gold" />)}</div>
                   <p className="italic text-white/90">"{r.text}"</p>
-                  <p className="mt-4 font-semibold text-gold">— {r.name}</p>
+                  <p className="mt-4 font-semibold text-gold">{r.name}</p>
                 </div>
               </div>
             ))}
@@ -235,20 +294,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* AI CHAT */}
-      <section className="bg-white py-24">
-        <div className="container-pw">
-          <ScrollReveal>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="label-accent">24/7 Assistant</span>
-              <h2 className="text-3xl md:text-4xl mt-3 text-navy">Ask Our AI Assistant Anything</h2>
-              <p className="mt-3 text-muted-foreground">Get instant answers about our services, pricing and process — 24 hours a day.</p>
-            </div>
-            <AIChat />
-          </ScrollReveal>
-        </div>
-      </section>
-
+      {/* SECTION 8: FINAL CTA */}
       <CTASection />
     </>
   );

@@ -10,9 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as FreeAuditRouteImport } from './routes/free-audit'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,9 +26,19 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeAuditRoute = FreeAuditRouteImport.update({
+  id: '/free-audit',
+  path: '/free-audit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -36,6 +49,11 @@ const FaqRoute = FaqRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -63,9 +81,12 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/free-audit': typeof FreeAuditRoute
   '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/services': typeof ServicesRoute
   '/posts/$slug': typeof PostsSlugRoute
 }
@@ -73,9 +94,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/free-audit': typeof FreeAuditRoute
   '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/services': typeof ServicesRoute
   '/posts/$slug': typeof PostsSlugRoute
 }
@@ -84,9 +108,12 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
+  '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/free-audit': typeof FreeAuditRoute
   '/portfolio': typeof PortfolioRoute
+  '/pricing': typeof PricingRoute
   '/services': typeof ServicesRoute
   '/posts/$slug': typeof PostsSlugRoute
 }
@@ -96,9 +123,12 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blog'
+    | '/case-studies'
     | '/contact'
     | '/faq'
+    | '/free-audit'
     | '/portfolio'
+    | '/pricing'
     | '/services'
     | '/posts/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -106,9 +136,12 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blog'
+    | '/case-studies'
     | '/contact'
     | '/faq'
+    | '/free-audit'
     | '/portfolio'
+    | '/pricing'
     | '/services'
     | '/posts/$slug'
   id:
@@ -116,9 +149,12 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blog'
+    | '/case-studies'
     | '/contact'
     | '/faq'
+    | '/free-audit'
     | '/portfolio'
+    | '/pricing'
     | '/services'
     | '/posts/$slug'
   fileRoutesById: FileRoutesById
@@ -127,9 +163,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  FreeAuditRoute: typeof FreeAuditRoute
   PortfolioRoute: typeof PortfolioRoute
+  PricingRoute: typeof PricingRoute
   ServicesRoute: typeof ServicesRoute
   PostsSlugRoute: typeof PostsSlugRoute
 }
@@ -143,11 +182,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
       fullPath: '/portfolio'
       preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-audit': {
+      id: '/free-audit'
+      path: '/free-audit'
+      fullPath: '/free-audit'
+      preLoaderRoute: typeof FreeAuditRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -162,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -199,12 +259,25 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  FreeAuditRoute: FreeAuditRoute,
   PortfolioRoute: PortfolioRoute,
+  PricingRoute: PricingRoute,
   ServicesRoute: ServicesRoute,
   PostsSlugRoute: PostsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
