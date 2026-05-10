@@ -19,3 +19,7 @@ if (!(await exists(join(dist, "index.html")))) {
 await mkdir(dist, { recursive: true });
 await writeFile(join(dist, ".nojekyll"), "");
 await copyFile(join(dist, "index.html"), join(dist, "404.html"));
+
+if (await exists("CNAME")) {
+  await copyFile("CNAME", join(dist, "CNAME"));
+}
