@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { Send, Loader2 } from "lucide-react";
-import { askAI } from "@/utils/ai.functions";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -23,14 +22,16 @@ export function AIChat() {
     setMessages(next);
     setInput("");
     setLoading(true);
-    try {
-      const reply = await askAI({ data: { messages: next } });
-      setMessages([...next, { role: "assistant", content: reply }]);
-    } catch {
-      setMessages([...next, { role: "assistant", content: "Sorry, I had trouble responding. Please reach out via WhatsApp +1 226 855 6194." }]);
-    } finally {
+    window.setTimeout(() => {
+      setMessages([
+        ...next,
+        {
+          role: "assistant",
+          content: "Thanks for reaching out. For the fastest help with pricing, services, or timelines, message us on WhatsApp +1 226 855 6194 or email info.primewaveagency@gmail.com.",
+        },
+      ]);
       setLoading(false);
-    }
+    }, 500);
   }
 
   return (
