@@ -52,7 +52,7 @@ function Blog() {
         <div className="container-pw max-w-2xl text-center">
           <span className="label-accent">Newsletter</span>
           <h2 className="text-3xl md:text-4xl mt-3 text-navy">Get Weekly Tips Delivered to Your Inbox</h2>
-          <form className="mt-6 flex flex-col sm:flex-row gap-3" onSubmit={(e) => { e.preventDefault(); alert("Thanks for subscribing!"); }}>
+          <form className="mt-6 flex flex-col sm:flex-row gap-3" onSubmit={(e) => { e.preventDefault(); window.open("http://eepurl.com/m7I1mT5VKZ", "_blank", "noopener,noreferrer"); }}>
             <input type="email" required placeholder="you@example.com" className="flex-1 px-4 py-3 rounded-md border border-border focus:outline-none focus:border-gold" />
             <button className="bg-gold text-white font-semibold px-7 py-3 rounded-md hover:opacity-90 transition">Subscribe</button>
           </form>
