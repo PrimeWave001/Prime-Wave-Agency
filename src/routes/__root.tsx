@@ -4,6 +4,8 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  HeadContent,
+  Scripts,
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
@@ -63,12 +65,14 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <HeadContent />
       <Header />
       <main className="min-h-screen pt-0">
         <Outlet />
       </main>
       <Footer />
       <FloatingButtons />
+      <Scripts />
     </QueryClientProvider>
   );
 }
