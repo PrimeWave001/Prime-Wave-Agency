@@ -3,6 +3,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { CTASection } from "@/components/CTASection";
 import { ExternalLink, Target, Lightbulb, TrendingUp, ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
