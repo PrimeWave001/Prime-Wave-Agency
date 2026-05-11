@@ -21,19 +21,19 @@ const tiers = [
     name: "Starter Plan",
     price: "$299",
     popular: false,
-    features: ["Up to 5 pages", "Mobile responsive", "Basic SEO", "Contact form", "30 days support"],
+    features: ["Up to 5 pages", "Mobile responsive", "Basic SEO", "Contact form", "10 days support"],
   },
   {
     name: "Professional Plan",
     price: "$599",
     popular: true,
-    features: ["Up to 10 pages", "Premium UI UX design", "Full SEO", "Speed optimization", "WhatsApp integration", "60 days support"],
+    features: ["Up to 10 pages", "Premium UI UX design", "Full SEO", "Speed optimization", "WhatsApp integration", "15 days support"],
   },
   {
     name: "Ecommerce Plan",
     price: "$999",
     popular: false,
-    features: ["Full online store", "Payment integration", "Product management", "Ecommerce SEO", "Mobile checkout", "90 days support"],
+    features: ["Full online store", "Payment integration", "Product management", "Ecommerce SEO", "Mobile checkout", "30 days support"],
   },
 ];
 
