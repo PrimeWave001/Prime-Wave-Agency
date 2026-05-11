@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
+import { PageHero } from "@/components/PageHero";
 import { ExternalLink } from "lucide-react";
 
 export const Route = createFileRoute("/portfolio")({
