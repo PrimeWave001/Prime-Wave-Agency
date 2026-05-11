@@ -50,15 +50,12 @@ function FreeAudit() {
 
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div aria-hidden className="absolute top-20 right-10 w-72 h-72 rounded-full bg-gold/10 blur-3xl float-shape" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Free Website Audit</span>
-          <h1 className="text-4xl md:text-6xl mt-3">Get Your FREE Website Audit Worth $200</h1>
-          <p className="mt-5 text-white/80 max-w-2xl mx-auto">We analyze your website speed, SEO health, mobile experience and conversion rate and deliver a full report within 24 hours at absolutely no cost.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Free Website Audit"
+        title="Get Your FREE Website Audit Worth $200"
+        subtitle="We analyze your website speed, SEO health, mobile experience and conversion rate and deliver a full report within 24 hours at absolutely no cost."
+        image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=60"
+      />
 
       <section className="bg-white py-20">
         <div className="container-pw grid lg:grid-cols-2 gap-12 items-start">
