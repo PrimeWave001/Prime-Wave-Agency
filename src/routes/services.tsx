@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
+import { PageHero } from "@/components/PageHero";
 import { Code2, Palette, Search, ShoppingBag, MessageSquare, Wrench, Check, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
