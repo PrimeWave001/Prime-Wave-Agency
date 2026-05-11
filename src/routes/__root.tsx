@@ -67,6 +67,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <HeadContent />
+      <ScrollProgress />
       <Header />
       <main className="min-h-screen pt-0">
         <Outlet />
