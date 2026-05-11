@@ -126,6 +126,27 @@ function Contact() {
           ))}
         </div>
       </section>
+
+      <section className="bg-surface py-20">
+        <div className="container-pw">
+          <div className="text-center mb-8">
+            <span className="label-accent">Find Us</span>
+            <h2 className="text-3xl md:text-4xl mt-3 text-navy">Based in Canada — Serving Worldwide</h2>
+          </div>
+          <div className="rounded-3xl overflow-hidden shadow-2xl border border-border">
+            <iframe
+              title="Prime Wave Agency location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.7952466750515!2d-79.38318492346663!3d43.64255507110458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d68bf33a9b%3A0x15edd8c4de1bc7e9!2sToronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sca!4v1699564732456!5m2!1sen!2sca"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
