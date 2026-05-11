@@ -32,18 +32,19 @@ function waLink(service: string) {
 function Services() {
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div aria-hidden className="absolute top-20 right-20 w-64 h-64 rounded-full bg-gold/10 blur-3xl float-shape" />
-        <div aria-hidden className="absolute bottom-10 left-20 w-72 h-72 rounded-full bg-gold/5 blur-3xl float-shape-2" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Services</span>
-          <h1 className="text-4xl md:text-6xl mt-3">Premium Services for Ambitious Businesses</h1>
-          <p className="mt-4 text-white/75 max-w-2xl mx-auto">Everything you need to launch, grow and scale your online presence under one roof.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Services"
+        title="Premium Services for Ambitious Businesses"
+        subtitle="Everything you need to launch, grow and scale your online presence under one roof."
+        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=60"
+      />
 
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 relative overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.06] bg-cover bg-center"
+          style={{ backgroundImage: "url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1800&q=60)" }}
+        />
         <div className="container-pw space-y-20">
           {services.map((s, i) => {
             const reverse = i % 2 === 1;
