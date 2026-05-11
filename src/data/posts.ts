@@ -18,7 +18,17 @@ const POST_IMAGES = [
   "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
 ];
 
-export const posts: Post[] = [
+const POST_DATES = [
+  "March 12, 2026",
+  "April 02, 2026",
+  "April 18, 2026",
+  "May 01, 2026",
+  "May 04, 2026",
+  "May 09, 2026",
+];
+
+type RawPost = Omit<Post, "image" | "date">;
+const rawPosts: RawPost[] = [
   {
     slug: "5-reasons-your-website-is-losing-clients",
     cat: "Web Design",
