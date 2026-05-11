@@ -3,7 +3,8 @@ import founder from "@/assets/founder.jpg";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { CTASection } from "@/components/CTASection";
-import { Award, Eye, Target, Handshake, Instagram, Mail, MessageCircle, Linkedin, Star, ExternalLink } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
+import { Award, Eye, Target, Handshake, Instagram, Mail, MessageCircle, Linkedin, Star, ExternalLink, Compass, Lightbulb } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
