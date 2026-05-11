@@ -81,7 +81,7 @@ function HomePage() {
   return (
     <>
       {/* ANNOUNCEMENT BAR */}
-      <div className="fixed top-0 inset-x-0 z-[55] text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center" style={{ background: "linear-gradient(90deg, #D37B29, #b96720)", marginTop: "0" }}>
+      <div className="text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center" style={{ background: "linear-gradient(90deg, #D37B29, #b96720)" }}>
         <span className="hidden sm:inline">🎉 Now Accepting New Clients in May 2026 — </span>
         <Link to="/contact" className="underline underline-offset-2 hover:text-navy transition">Get Started Today →</Link>
       </div>
