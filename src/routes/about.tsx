@@ -18,18 +18,6 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-function PageHero({ label, title, subtitle }: { label: string; title: string; subtitle?: string }) {
-  return (
-    <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="container-pw relative text-center">
-        <span className="label-accent">{label}</span>
-        <h1 className="text-4xl md:text-6xl mt-3">{title}</h1>
-        {subtitle && <p className="mt-4 text-white/75 max-w-2xl mx-auto">{subtitle}</p>}
-      </div>
-    </section>
-  );
-}
 
 function About() {
   const values = [
