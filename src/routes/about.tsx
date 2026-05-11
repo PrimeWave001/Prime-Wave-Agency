@@ -28,7 +28,12 @@ function About() {
   ];
   return (
     <>
-      <PageHero label="About Us" title="We Are Prime Wave" subtitle="A premium web agency built to help businesses win online." />
+      <PageHero
+        label="About Us"
+        title="We Are Prime Wave"
+        subtitle="A premium web agency built to help businesses win online."
+        image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1800&q=60"
+      />
       <section className="bg-white py-24">
         <div className="container-pw max-w-3xl text-center">
           <ScrollReveal>
@@ -37,6 +42,49 @@ function About() {
             <p className="mt-6 text-muted-foreground">Every business deserves a website that works as hard as they do. Too many beautiful sites fail to convert, and too many functional ones look forgettable. We exist to bridge that gap.</p>
             <p className="mt-4 text-muted-foreground">Prime Wave was founded by Marcus Derrick to deliver agency grade design without the agency grade overhead. Direct access to the founder, zero outsourcing, and a relentless focus on results.</p>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Mission, Vision, Values */}
+      <section className="bg-surface py-24">
+        <div className="container-pw">
+          <ScrollReveal>
+            <div className="text-center mb-14">
+              <span className="label-accent">What Drives Us</span>
+              <h2 className="text-3xl md:text-4xl mt-3 text-navy">Mission, Vision &amp; Values</h2>
+            </div>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { i: Target, t: "Our Mission", d: "To empower businesses worldwide with premium digital experiences that drive real growth, attract ideal clients and create lasting competitive advantages." },
+              { i: Compass, t: "Our Vision", d: "To become the most trusted web agency for ambitious businesses across Canada and worldwide, known for delivering results that exceed expectations every single time." },
+              { i: Lightbulb, t: "Our Values", d: "Excellence in every pixel. Transparent timelines and zero hidden fees. Results that move the business. True partnership beyond launch. Innovation that keeps clients ahead." },
+            ].map((c) => (
+              <ScrollReveal key={c.t}>
+                <div className="bg-white border border-border rounded-2xl p-8 h-full lift-3d" style={{ borderTopColor: "#D37B29", borderTopWidth: 4 }}>
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style={{ background: "#1f2a44" }}>
+                    <c.i className="text-gold" size={26} />
+                  </div>
+                  <h3 className="text-xl text-navy mb-2">{c.t}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{c.d}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { t: "Excellence", d: "Highest standard, every pixel and line of code." },
+              { t: "Transparency", d: "Honest timelines, zero hidden fees." },
+              { t: "Results", d: "Beautiful design that drives business impact." },
+              { t: "Partnership", d: "Your growth is our success metric." },
+              { t: "Innovation", d: "Always ahead of digital trends." },
+            ].map((v) => (
+              <div key={v.t} className="bg-white p-5 rounded-xl border border-border">
+                <p className="font-semibold" style={{ color: "#D37B29" }}>{v.t}</p>
+                <p className="text-xs text-muted-foreground mt-1.5">{v.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
