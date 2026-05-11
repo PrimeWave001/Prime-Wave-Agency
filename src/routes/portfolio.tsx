@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
+import { PageHero } from "@/components/PageHero";
 import { ExternalLink } from "lucide-react";
 
 export const Route = createFileRoute("/portfolio")({
@@ -41,14 +42,12 @@ function Portfolio() {
   const visible = filter === "All" ? projects : projects.filter((p) => p.platform === filter);
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Our Work</span>
-          <h1 className="text-4xl md:text-6xl mt-3">15+ Projects. Zero Excuses.</h1>
-          <p className="mt-4 text-white/75 max-w-xl mx-auto">A selection of websites we've designed, built or optimized for clients worldwide.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Our Work"
+        title="50+ Projects. Zero Excuses."
+        subtitle="A selection of websites we've designed, built or optimized for clients worldwide."
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1800&q=60"
+      />
 
       <section className="bg-white py-20">
         <div className="container-pw">
@@ -60,7 +59,7 @@ function Portfolio() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visible.map((p, i) => (
               <ScrollReveal key={p.url} delay={i * 40}>
-                <a href={`https://${p.url}`} target="_blank" rel="noopener" className="block bg-surface rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <a href={`https://${p.url}`} target="_blank" rel="noopener" className="block bg-surface rounded-2xl border border-border overflow-hidden lift-3d tilt-3d group">
                   <div className="h-44 bg-gradient-to-br from-navy to-[#2a3a5e] relative flex items-center justify-center">
                     <div className="absolute inset-0 bg-grid opacity-40" />
                     <span className="relative text-white font-display font-bold text-lg md:text-xl text-center px-4">{p.url}</span>

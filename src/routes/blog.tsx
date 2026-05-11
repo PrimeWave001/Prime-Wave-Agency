@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
+import { PageHero } from "@/components/PageHero";
 import { ArrowRight } from "lucide-react";
 import { posts } from "@/data/posts";
 
@@ -19,21 +20,19 @@ export const Route = createFileRoute("/blog")({
 function Blog() {
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Blog</span>
-          <h1 className="text-4xl md:text-6xl mt-3">Insights and Resources</h1>
-          <p className="mt-4 text-white/75 max-w-xl mx-auto">Tips, strategies and insights to help your business grow online.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Blog"
+        title="Insights and Resources"
+        subtitle="Tips, strategies and insights to help your business grow online."
+        image="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1800&q=60"
+      />
       <section className="bg-white py-24">
         <div className="container-pw grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((p, i) => (
             <ScrollReveal key={p.slug} delay={i * 60}>
-              <article className="bg-surface rounded-2xl border border-border overflow-hidden h-full flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all">
-                <div className="h-44 bg-gradient-to-br from-navy to-[#2a3a5e] relative">
-                  <div className="absolute inset-0 bg-grid opacity-40" />
+              <article className="bg-surface rounded-2xl border border-border overflow-hidden h-full flex flex-col lift-3d">
+                <div className="h-48 relative overflow-hidden">
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
                   <span className="absolute top-4 left-4 text-xs font-semibold px-3 py-1 rounded-full bg-gold text-white">{p.cat}</span>
                 </div>
                 <div className="p-6 flex flex-col flex-1">

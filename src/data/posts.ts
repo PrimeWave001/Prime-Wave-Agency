@@ -4,10 +4,31 @@ export type Post = {
   title: string;
   excerpt: string;
   readTime: string;
-  body: { heading: string; paragraphs: string[] }[];
+  date: string;
+  image: string;
+  body: { heading: string; paragraphs: string[]; pullQuote?: string }[];
 };
 
-export const posts: Post[] = [
+const POST_IMAGES = [
+  "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80",
+  "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&q=80",
+  "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80",
+  "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1200&q=80",
+  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+];
+
+const POST_DATES = [
+  "March 12, 2026",
+  "April 02, 2026",
+  "April 18, 2026",
+  "May 01, 2026",
+  "May 04, 2026",
+  "May 09, 2026",
+];
+
+type RawPost = Omit<Post, "image" | "date">;
+const rawPosts: RawPost[] = [
   {
     slug: "5-reasons-your-website-is-losing-clients",
     cat: "Web Design",
@@ -318,4 +339,11 @@ export const posts: Post[] = [
   },
 ];
 
+export const posts: Post[] = rawPosts.map((p, i) => ({
+  ...p,
+  image: POST_IMAGES[i % POST_IMAGES.length],
+  date: POST_DATES[i % POST_DATES.length],
+}));
+
 export const getPost = (slug: string) => posts.find((p) => p.slug === slug);
+

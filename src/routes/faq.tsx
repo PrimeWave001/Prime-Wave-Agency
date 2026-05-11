@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -33,13 +34,11 @@ function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Help Center</span>
-          <h1 className="text-4xl md:text-6xl mt-3">Frequently Asked Questions</h1>
-        </div>
-      </section>
+      <PageHero
+        label="Help Center"
+        title="Frequently Asked Questions"
+        image="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1800&q=60"
+      />
       <section className="bg-white py-24">
         <div className="container-pw max-w-3xl space-y-3">
           {items.map((it, i) => (

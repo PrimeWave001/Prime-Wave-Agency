@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container-pw py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <img src={logo} alt="Prime Wave" className="h-16 w-auto mb-4" />
-          <p className="text-white/70 text-sm leading-relaxed">Building premium digital experiences that convert.</p>
+          <p className="text-white/90 leading-relaxed font-medium" style={{ fontSize: "15px" }}>Building premium digital experiences that convert.</p>
         </div>
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">Navigate</h4>

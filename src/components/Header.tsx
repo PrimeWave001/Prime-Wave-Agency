@@ -31,7 +31,7 @@ export function Header() {
   const transparent = isHome && !scrolled;
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${transparent ? "bg-transparent" : "bg-navy/95 backdrop-blur shadow-md"}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${transparent ? "bg-transparent" : "glass-nav shadow-md"}`}>
       <div className="container-pw flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Prime Wave Agency" className="h-12 w-auto" />

@@ -3,6 +3,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { CTASection } from "@/components/CTASection";
 import { ExternalLink, Target, Lightbulb, TrendingUp, ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
@@ -61,14 +62,12 @@ const studies = [
 function CaseStudies() {
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Case Studies</span>
-          <h1 className="text-4xl md:text-6xl mt-3">Real Clients. Real Results.</h1>
-          <p className="mt-4 text-white/75 max-w-2xl mx-auto">A look behind the scenes at how Prime Wave delivers measurable wins for businesses worldwide.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Case Studies"
+        title="Real Clients. Real Results."
+        subtitle="A look behind the scenes at how Prime Wave delivers measurable wins for businesses worldwide."
+        image="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1800&q=60"
+      />
 
       {studies.map((cs, idx) => (
         <section key={cs.client} className={idx % 2 === 0 ? "bg-white py-24" : "bg-surface py-24"}>

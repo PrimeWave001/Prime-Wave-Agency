@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { Mail, MessageCircle, MapPin, Clock, Instagram, Send, Loader2, CheckCircle2 } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
+import { Mail, MessageCircle, MapPin, Clock, Instagram, Send, Loader2, CheckCircle2, Linkedin, Star } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -34,13 +35,11 @@ function Contact() {
   }
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Contact</span>
-          <h1 className="text-4xl md:text-6xl mt-3">Let Us Talk About Your Project</h1>
-        </div>
-      </section>
+      <PageHero
+        label="Contact"
+        title="Let Us Talk About Your Project"
+        image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1800&q=60"
+      />
 
       <section className="bg-white py-24">
         <div className="container-pw grid lg:grid-cols-2 gap-12">
@@ -67,9 +66,13 @@ function Contact() {
             </div>
             <div className="flex gap-3 mt-6">
               <a href="https://instagram.com/primewave301" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold transition"><Instagram size={18} /></a>
+              <a href="https://linkedin.com/company/primewaveagency" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold transition"><Linkedin size={18} /></a>
               <a href="https://t.me/primewave2" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold transition"><Send size={18} /></a>
               <a href="mailto:info.primewaveagency@gmail.com" className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold transition"><Mail size={18} /></a>
             </div>
+            <a href="https://share.google/RT2c6cmvAsyFCc1Or" target="_blank" rel="noopener" className="mt-5 inline-flex items-center gap-2 bg-white border-2 border-gold text-navy hover:bg-gold hover:text-white font-semibold px-5 py-3 rounded-md transition shadow-sm">
+              <Star size={18} className="fill-gold text-gold" /> Leave us a Google Review
+            </a>
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
@@ -121,6 +124,27 @@ function Contact() {
           {["Free Consultation", "No Hidden Fees", "24 Hour Response", "100% Satisfaction"].map((t) => (
             <div key={t} className="p-4 rounded-xl bg-surface border border-border font-semibold text-navy">✓ {t}</div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-surface py-20">
+        <div className="container-pw">
+          <div className="text-center mb-8">
+            <span className="label-accent">Find Us</span>
+            <h2 className="text-3xl md:text-4xl mt-3 text-navy">Based in Canada — Serving Worldwide</h2>
+          </div>
+          <div className="rounded-3xl overflow-hidden shadow-2xl border border-border">
+            <iframe
+              title="Prime Wave Agency location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.7952466750515!2d-79.38318492346663!3d43.64255507110458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d68bf33a9b%3A0x15edd8c4de1bc7e9!2sToronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sca!4v1699564732456!5m2!1sen!2sca"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
     </>
