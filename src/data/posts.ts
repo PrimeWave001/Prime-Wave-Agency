@@ -339,4 +339,11 @@ const rawPosts: RawPost[] = [
   },
 ];
 
+export const posts: Post[] = rawPosts.map((p, i) => ({
+  ...p,
+  image: POST_IMAGES[i % POST_IMAGES.length],
+  date: POST_DATES[i % POST_DATES.length],
+}));
+
 export const getPost = (slug: string) => posts.find((p) => p.slug === slug);
+
