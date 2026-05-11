@@ -51,14 +51,12 @@ function waLink(plan: string) {
 function Pricing() {
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Pricing</span>
-          <h1 className="text-4xl md:text-6xl mt-3">Simple Transparent Pricing</h1>
-          <p className="mt-4 text-white/75 max-w-2xl mx-auto">No hidden fees, no surprises, just honest pricing for premium work.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Pricing"
+        title="Simple Transparent Pricing"
+        subtitle="No hidden fees, no surprises, just honest pricing for premium work."
+        image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1800&q=60"
+      />
 
       <section className="bg-white py-24">
         <div className="container-pw grid md:grid-cols-3 gap-8">
