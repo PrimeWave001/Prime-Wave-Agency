@@ -45,7 +45,7 @@ function Services() {
           className="absolute inset-0 opacity-[0.06] bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1800&q=60)" }}
         />
-        <div className="container-pw space-y-20">
+        <div className="container-pw relative space-y-20">
           {services.map((s, i) => {
             const reverse = i % 2 === 1;
             return (
