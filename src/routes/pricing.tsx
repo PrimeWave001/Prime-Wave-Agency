@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
+import { PageHero } from "@/components/PageHero";
 import { Check, MessageCircle, Star } from "lucide-react";
 
 export const Route = createFileRoute("/pricing")({
