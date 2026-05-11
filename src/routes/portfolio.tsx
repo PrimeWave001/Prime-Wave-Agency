@@ -42,14 +42,12 @@ function Portfolio() {
   const visible = filter === "All" ? projects : projects.filter((p) => p.platform === filter);
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Our Work</span>
-          <h1 className="text-4xl md:text-6xl mt-3">15+ Projects. Zero Excuses.</h1>
-          <p className="mt-4 text-white/75 max-w-xl mx-auto">A selection of websites we've designed, built or optimized for clients worldwide.</p>
-        </div>
-      </section>
+      <PageHero
+        label="Our Work"
+        title="50+ Projects. Zero Excuses."
+        subtitle="A selection of websites we've designed, built or optimized for clients worldwide."
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1800&q=60"
+      />
 
       <section className="bg-white py-20">
         <div className="container-pw">
