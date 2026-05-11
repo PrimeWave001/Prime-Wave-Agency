@@ -4,8 +4,19 @@ export type Post = {
   title: string;
   excerpt: string;
   readTime: string;
-  body: { heading: string; paragraphs: string[] }[];
+  date: string;
+  image: string;
+  body: { heading: string; paragraphs: string[]; pullQuote?: string }[];
 };
+
+const POST_IMAGES = [
+  "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80",
+  "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&q=80",
+  "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80",
+  "https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1200&q=80",
+  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+];
 
 export const posts: Post[] = [
   {
