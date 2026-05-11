@@ -66,9 +66,13 @@ function Contact() {
             </div>
             <div className="flex gap-3 mt-6">
               <a href="https://instagram.com/primewave301" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold transition"><Instagram size={18} /></a>
+              <a href="https://linkedin.com/company/primewaveagency" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold transition"><Linkedin size={18} /></a>
               <a href="https://t.me/primewave2" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold transition"><Send size={18} /></a>
               <a href="mailto:info.primewaveagency@gmail.com" className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold transition"><Mail size={18} /></a>
             </div>
+            <a href="https://share.google/RT2c6cmvAsyFCc1Or" target="_blank" rel="noopener" className="mt-5 inline-flex items-center gap-2 bg-white border-2 border-gold text-navy hover:bg-gold hover:text-white font-semibold px-5 py-3 rounded-md transition shadow-sm">
+              <Star size={18} className="fill-gold text-gold" /> Leave us a Google Review
+            </a>
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
