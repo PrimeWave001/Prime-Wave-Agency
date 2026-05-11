@@ -9,6 +9,7 @@ import {
   Code2, Palette, Search, ShoppingBag, MessageSquare, Wrench,
   Star, ArrowRight, ExternalLink, Award, Target, Handshake, Sparkles,
   Clock, Smartphone, TrendingUp, UserCheck, DollarSign, ShieldCheck,
+  CheckCircle2, MapPin, Filter,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -42,13 +43,15 @@ const whyUs = [
 ];
 
 const portfolio = [
-  { url: "brightchatter.com", platform: "Duda", type: "Redesign", desc: "Brand aligned redesign with refined IA and faster load times." },
+  { url: "brightchatter.com", platform: "Custom", type: "Redesign", desc: "Brand aligned redesign with refined IA and faster load times." },
   { url: "mikesplumbingchicago.com", platform: "WordPress", type: "Full Design", desc: "Local service site engineered for lead generation." },
   { url: "stamperrealtyservices.com", platform: "WordPress", type: "Full Design", desc: "Premium real estate site with custom property modules." },
-  { url: "mrs-legal.com", platform: "WordPress", type: "Migration", desc: "Seamless migration with zero downtime and improved speed." },
+  { url: "sageandsanto.com", platform: "Shopify", type: "Ecommerce", desc: "High converting Shopify store with custom product pages." },
   { url: "carolinabotanica.com", platform: "WordPress", type: "Redesign", desc: "Botanical brand refresh with elegant typography and storytelling." },
-  { url: "kinetico.com", platform: "WordPress", type: "SEO Optimization", desc: "Technical SEO overhaul yielding strong organic gains." },
+  { url: "aquasaludable.com", platform: "Wix", type: "Full Design", desc: "Bilingual Wix build with strong local conversion focus." },
 ];
+
+const portfolioFilters = ["All", "WordPress", "Shopify", "Wix", "Custom", "Squarespace"] as const;
 
 const reviews = [
   { name: "Lisa F. Hanson", text: "Prime Wave Agency did an incredible job on my website. Professional, easy to work with and delivered more than I expected." },
@@ -59,30 +62,61 @@ const reviews = [
 
 function HomePage() {
   const [reviewIdx, setReviewIdx] = useState(0);
+  const [pfFilter, setPfFilter] = useState<(typeof portfolioFilters)[number]>("All");
+  const [parallaxY, setParallaxY] = useState(0);
+
   useEffect(() => {
     const t = setInterval(() => setReviewIdx((i) => (i + 1) % reviews.length), 5000);
     return () => clearInterval(t);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setParallaxY(window.scrollY * 0.35);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const visiblePortfolio = pfFilter === "All" ? portfolio : portfolio.filter((p) => p.platform === pfFilter);
+
   return (
     <>
-      {/* SECTION 1: HERO */}
-      <section className="relative min-h-screen bg-navy text-white overflow-hidden flex items-center pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-[#1a2440] to-[#2a3760]" />
-        <div className="absolute inset-0 bg-grid opacity-40" />
-        {/* floating shapes */}
-        <div aria-hidden className="absolute top-24 left-10 w-40 h-40 rounded-full bg-gold/10 blur-2xl float-shape" />
-        <div aria-hidden className="absolute bottom-20 right-10 w-56 h-56 rounded-full bg-gold/10 blur-3xl float-shape-2" />
-        <div aria-hidden className="absolute top-40 right-1/3 w-24 h-24 rotate-45 bg-gold/5 border border-gold/20 float-shape" />
-        <div aria-hidden className="absolute bottom-32 left-1/4 w-16 h-16 rotate-12 bg-gold/10 rounded-xl float-shape-2" />
+      {/* ANNOUNCEMENT BAR */}
+      <div className="fixed top-0 inset-x-0 z-[55] text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center" style={{ background: "linear-gradient(90deg, #D37B29, #b96720)", marginTop: "0" }}>
+        <span className="hidden sm:inline">🎉 Now Accepting New Clients in May 2026 — </span>
+        <Link to="/contact" className="underline underline-offset-2 hover:text-navy transition">Get Started Today →</Link>
+      </div>
+
+      {/* SECTION 1: HERO with parallax bg image */}
+      <section className="relative min-h-screen text-white overflow-hidden flex items-center pt-28">
+        {/* Parallax background image */}
+        <div
+          className="absolute inset-0 w-full h-[120%] bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=80)",
+            transform: `translateY(${parallaxY}px)`,
+            willChange: "transform",
+          }}
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-navy/95 via-navy/80 to-navy/95" />
+        <div className="absolute inset-0 bg-grid opacity-20" />
+
+        {/* floating 3D shapes */}
+        <div aria-hidden className="absolute top-24 left-10 w-40 h-40 rounded-full bg-gold/20 blur-2xl float-shape" />
+        <div aria-hidden className="absolute bottom-20 right-10 w-56 h-56 rounded-full bg-gold/15 blur-3xl float-shape-2" />
+        <div aria-hidden className="absolute top-40 right-1/3 w-24 h-24 rotate-45 bg-gold/10 border border-gold/30 float-shape" />
+        <div aria-hidden className="absolute bottom-32 left-1/4 w-16 h-16 rotate-12 bg-gold/15 rounded-xl float-shape-2" />
+        <div aria-hidden className="absolute top-1/2 left-1/2 w-20 h-20 rounded-full border-2 border-gold/30 float-shape" style={{ transform: "translate3d(-50%,-50%,0)" }} />
+
         {/* particles */}
         <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
-          {Array.from({ length: 18 }).map((_, i) => (
+          {Array.from({ length: 22 }).map((_, i) => (
             <span
               key={i}
-              className="particle absolute block w-1 h-1 rounded-full bg-gold/60"
+              className="particle absolute block w-1 h-1 rounded-full bg-gold/70"
               style={{
-                left: `${(i * 53) % 100}%`,
+                left: `${(i * 47) % 100}%`,
                 bottom: `-${(i * 7) % 30}px`,
                 animationDuration: `${10 + ((i * 3) % 14)}s`,
                 animationDelay: `${(i * 0.7) % 8}s`,
@@ -93,46 +127,69 @@ function HomePage() {
 
         <div className="container-pw relative grid lg:grid-cols-2 gap-12 items-center py-16">
           <ScrollReveal>
-            <span className="badge-pulse inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider">
+            <span className="badge-pulse inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
               Now Accepting New Clients
             </span>
-            <h1 className="text-5xl md:text-7xl mt-5 leading-[1.02] font-bold">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl mt-5 leading-[1.02] font-bold drop-shadow-2xl">
               Build a Powerful <span className="text-gradient-gold">Online Presence</span> That Converts
             </h1>
-            <p className="mt-6 text-lg text-white/75 max-w-xl">
+            <p className="mt-6 text-lg md:text-xl text-white/85 max-w-xl">
               We design modern, high performing websites that help businesses grow, attract clients and stand out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-lg text-center">Get a Free Proposal</Link>
-              <Link to="/portfolio" className="border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-md hover:bg-white hover:text-navy transition text-center">View Our Work</Link>
+              <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-2xl text-center">Get a Free Proposal</Link>
+              <Link to="/portfolio" className="border-2 border-white/50 text-white font-semibold px-8 py-4 rounded-md hover:bg-white hover:text-navy transition text-center backdrop-blur-sm">View Our Work</Link>
             </div>
-            <div className="flex flex-wrap gap-6 mt-10 text-sm">
-              <div className="flex items-center gap-2"><span className="text-gold font-bold text-lg">15+</span><span className="text-white/70">Projects</span></div>
-              <div className="flex items-center gap-2"><span className="text-gold font-bold text-lg">80+</span><span className="text-white/70">Clients</span></div>
-              <div className="flex items-center gap-2"><span className="text-gold font-bold text-lg">98%</span><span className="text-white/70">Satisfaction</span></div>
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-3 mt-8">
+              {[
+                { i: Star, t: "Google Verified" },
+                { i: CheckCircle2, t: "50+ Projects" },
+                { i: MapPin, t: "Canada Based" },
+                { i: TrendingUp, t: "Worldwide Service" },
+              ].map((b) => (
+                <div key={b.t} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold backdrop-blur-sm">
+                  <b.i size={14} className="text-gold" />
+                  {b.t}
+                </div>
+              ))}
             </div>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-gold/30 to-transparent rounded-2xl blur-2xl" />
-              <img src={founder} alt="Marcus Derrick, Founder" className="relative rounded-2xl shadow-2xl border-2 border-gold/30 bg-navy w-full h-auto animate-float" />
+              <div className="absolute -inset-4 bg-gradient-to-tr from-gold/40 to-transparent rounded-2xl blur-2xl" />
+              <img src={founder} alt="Marcus Derrick, Founder" className="relative rounded-2xl shadow-2xl border-2 border-gold/40 bg-navy w-full h-auto animate-float" />
+
+              {/* Floating notification card */}
+              <div className="notif-pop absolute -bottom-6 -left-6 md:-left-10 bg-white text-navy rounded-2xl shadow-2xl p-4 max-w-[260px] border-l-4 border-gold">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gold/15 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="text-gold" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold leading-tight">John from Toronto</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">just requested a free proposal</p>
+                    <p className="text-[10px] uppercase tracking-wider text-gold font-bold mt-1">2 minutes ago</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
       <WaveDivider from="var(--navy)" to="#D37B29" />
 
-      {/* SECTION 2: STATS */}
+      {/* SECTION 2: STATS with 3D flip */}
       <section className="bg-gold text-white py-14">
         <div className="container-pw grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {[
-            { v: 15, s: "+", l: "Projects Completed" },
+            { v: 50, s: "+", l: "Projects Completed" },
             { v: 80, s: "+", l: "Happy Clients" },
             { v: 5, s: "+", l: "Years Experience" },
             { v: 98, s: "%", l: "Client Satisfaction" },
           ].map((x) => (
-            <div key={x.l}>
+            <div key={x.l} className="flip-in">
               <div className="text-4xl md:text-5xl font-bold font-display"><AnimatedCounter value={x.v} suffix={x.s} /></div>
               <p className="mt-2 text-white/90 text-sm font-medium uppercase tracking-wider">{x.l}</p>
             </div>
@@ -175,96 +232,171 @@ function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 4: SERVICES */}
-      <section className="bg-surface py-24">
+      {/* SECTION A: SERVICES — horizontal scroll showcase */}
+      <section
+        className="relative py-24 text-white overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(31,42,68,0.92), rgba(31,42,68,0.92)), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1800&q=60)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="container-pw">
           <ScrollReveal>
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="label-accent">What We Do</span>
-              <h2 className="text-3xl md:text-4xl mt-3 text-navy">Premium Services for Ambitious Businesses</h2>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+              <div>
+                <span className="label-accent">What We Do</span>
+                <h2 className="text-3xl md:text-5xl mt-3">Premium Services for Ambitious Businesses</h2>
+              </div>
+              <p className="text-white/70 max-w-md text-sm">Scroll horizontally to explore every service we offer →</p>
             </div>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-              <ScrollReveal key={s.title} delay={i * 80}>
-                <div className="group bg-white p-7 rounded-2xl border border-border h-full hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-4">
-                    <s.icon className="text-gold" size={24} />
+        </div>
+        <div className="h-scroll overflow-x-auto pb-6">
+          <div className="flex gap-6 px-6 md:px-[max(1.25rem,calc((100vw-1200px)/2))]">
+            {services.map((s, i) => {
+              const dark = i % 2 === 0;
+              return (
+                <div
+                  key={s.title}
+                  className={`tilt-3d shrink-0 w-[320px] md:w-[360px] rounded-2xl p-7 border-t-4 border-transparent hover:border-gold transition-all ${dark ? "bg-navy text-white border border-white/10" : "bg-white text-navy"}`}
+                >
+                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${dark ? "bg-gold/15" : "bg-gold/10"}`}>
+                    <s.icon className="text-gold" size={28} />
                   </div>
-                  <h3 className="text-xl text-navy mb-2">{s.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-                  <Link to="/services" className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-gold hover:gap-3 transition-all">Learn More <ArrowRight size={16} /></Link>
+                  <h3 className={`text-xl mb-2 ${dark ? "text-white" : "text-navy"}`}>{s.title}</h3>
+                  <p className={`text-sm leading-relaxed ${dark ? "text-white/70" : "text-muted-foreground"}`}>{s.desc}</p>
+                  <a
+                    href={"https://wa.me/12268556194?text=" + encodeURIComponent(`Hi Prime Wave! I would like a quote for ${s.title}.`)}
+                    target="_blank"
+                    rel="noopener"
+                    className="mt-6 inline-flex items-center gap-2 bg-gold text-white font-semibold px-5 py-2.5 rounded-md hover:opacity-90 transition text-sm"
+                  >
+                    Get a Quote <ArrowRight size={16} />
+                  </a>
                 </div>
-              </ScrollReveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: WHY BUSINESSES CHOOSE US */}
+      {/* SECTION B: WHY CHOOSE US — bold two column layout */}
       <section className="bg-white py-24">
-        <div className="container-pw">
+        <div className="container-pw grid lg:grid-cols-2 gap-14 items-start">
           <ScrollReveal>
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="label-accent">Why Choose Prime Wave</span>
-              <h2 className="text-3xl md:text-4xl mt-3 text-navy">Why Businesses Choose Us</h2>
-              <p className="mt-3 text-muted-foreground">Six reasons clients trust Prime Wave to power their online presence.</p>
+            <span className="label-accent">Why Choose Prime Wave</span>
+            <h2 className="text-4xl md:text-6xl mt-3 text-navy leading-[1.05]">
+              Why clients choose <span className="text-gold">Prime Wave</span>
+            </h2>
+            <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
+              We're not the cheapest agency on the internet, and we're proud of it. Our clients hire us because they want results that
+              outlast trends — websites built on excellence, transparency and a real partnership focused on their growth.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-lg inline-flex items-center gap-2">
+                Get Started <ArrowRight size={18} />
+              </Link>
+              <Link to="/case-studies" className="border-2 border-navy/20 text-navy font-semibold px-8 py-4 rounded-md hover:bg-navy hover:text-white transition">
+                See Case Studies
+              </Link>
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-6">
+              <div>
+                <p className="text-3xl font-display font-bold text-gold">98%</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Client Satisfaction</p>
+              </div>
+              <div>
+                <p className="text-3xl font-display font-bold text-gold">24h</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Response Time</p>
+              </div>
             </div>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyUs.map((w, i) => (
-              <ScrollReveal key={w.title} delay={i * 80}>
-                <div className="group p-7 rounded-2xl bg-surface border border-border h-full hover:border-gold hover:shadow-xl transition-all">
-                  <div className="w-14 h-14 rounded-xl bg-navy text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-white transition">
-                    <w.icon size={26} />
+
+          <ScrollReveal delay={150}>
+            <div className="space-y-6">
+              {whyUs.map((w, i) => (
+                <div key={w.title} className="group flex gap-5 items-start p-5 rounded-2xl border-l-4 border-transparent hover:border-gold hover:bg-surface transition-all slide-in-left" style={{ animationDelay: `${i * 80}ms` }}>
+                  <div className="num-3d shrink-0 w-16 text-right">{String(i + 1).padStart(2, "0")}</div>
+                  <div>
+                    <h3 className="text-lg text-navy font-display font-bold">{w.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{w.desc}</p>
                   </div>
-                  <h3 className="text-lg text-navy mb-2">{w.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{w.desc}</p>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* SECTION 6: PORTFOLIO */}
-      <section className="bg-surface py-24">
-        <div className="container-pw">
+      {/* SECTION C: PORTFOLIO — full-width dark with filter bar */}
+      <section className="bg-navy text-white py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-15" />
+        <div aria-hidden className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gold/10 blur-3xl float-shape" />
+        <div className="container-pw relative">
           <ScrollReveal>
-            <div className="text-center mb-14">
+            <div className="text-center mb-12">
               <span className="label-accent">Selected Work</span>
-              <h2 className="text-3xl md:text-5xl mt-3 text-navy">15+ Projects. Zero Excuses.</h2>
+              <h2 className="text-3xl md:text-5xl mt-3">50+ Projects. Zero Excuses.</h2>
+              <p className="mt-4 text-white/70 max-w-xl mx-auto">Real client websites, redesigns and ecommerce stores delivered worldwide.</p>
             </div>
           </ScrollReveal>
+
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            <Filter size={18} className="text-gold mr-1 mt-2" />
+            {portfolioFilters.map((f) => (
+              <button
+                key={f}
+                onClick={() => setPfFilter(f)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${pfFilter === f ? "bg-gold text-white" : "bg-white/10 text-white hover:bg-white/20"}`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolio.map((p, i) => (
+            {visiblePortfolio.map((p, i) => (
               <ScrollReveal key={p.url} delay={i * 60}>
-                <div className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all group">
-                  <div className="h-40 bg-gradient-to-br from-navy to-[#2a3a5e] relative flex items-center justify-center">
-                    <div className="absolute inset-0 bg-grid opacity-40" />
-                    <span className="relative text-white font-display font-bold text-xl">{p.url}</span>
+                <div className="tilt-3d bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden group">
+                  <div className="h-40 bg-gradient-to-br from-[#1f2a44] to-[#3a4a78] relative flex items-center justify-center">
+                    <div className="absolute inset-0 bg-grid opacity-30" />
+                    <span className="relative font-display font-bold text-lg text-center px-4">{p.url}</span>
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded bg-navy text-white">{p.platform}</span>
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded bg-gold/10 text-gold uppercase tracking-wide">{p.type}</span>
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded bg-gold text-white">{p.platform}</span>
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded bg-white/10 text-gold uppercase tracking-wide">{p.type}</span>
                     </div>
-                    <p className="text-sm text-muted-foreground">{p.desc}</p>
-                    <a href={`https://${p.url}`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-navy hover:text-gold">View Site <ExternalLink size={14} /></a>
+                    <p className="text-sm text-white/70">{p.desc}</p>
+                    <a href={`https://${p.url}`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-gold hover:gap-3 transition-all">
+                      View Site <ExternalLink size={14} />
+                    </a>
                   </div>
                 </div>
               </ScrollReveal>
             ))}
           </div>
+
           <div className="text-center mt-12">
-            <Link to="/portfolio" className="inline-block bg-navy text-white font-semibold px-8 py-4 rounded-md hover:bg-gold transition">View All Work</Link>
+            <Link to="/portfolio" className="inline-flex items-center gap-2 bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-lg">
+              View All Projects <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* SECTION 7: REVIEWS */}
-      <section className="bg-navy text-white py-24">
+      {/* REVIEWS */}
+      <section
+        className="relative text-white py-24"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(31,42,68,0.92), rgba(31,42,68,0.95)), url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=60)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="container-pw text-center">
           <ScrollReveal>
             <span className="label-accent">Testimonials</span>
@@ -277,9 +409,9 @@ function HomePage() {
           <div className="mt-12 max-w-2xl mx-auto relative h-56">
             {reviews.map((r, i) => (
               <div key={r.name} className={`absolute inset-0 transition-opacity duration-700 ${i === reviewIdx ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-8">
                   <div className="flex justify-center mb-4">{[...Array(5)].map((_, k) => <Star key={k} size={18} className="fill-gold text-gold" />)}</div>
-                  <p className="italic text-white/90">"{r.text}"</p>
+                  <p className="italic text-white/95">"{r.text}"</p>
                   <p className="mt-4 font-semibold text-gold">{r.name}</p>
                 </div>
               </div>
@@ -287,15 +419,38 @@ function HomePage() {
           </div>
           <div className="flex justify-center gap-2 mt-4">
             {reviews.map((_, i) => (
-              <button key={i} onClick={() => setReviewIdx(i)} className={`w-2 h-2 rounded-full transition-all ${i === reviewIdx ? "bg-gold w-8" : "bg-white/30"}`} />
+              <button key={i} onClick={() => setReviewIdx(i)} aria-label={`Show review ${i + 1}`} className={`w-2 h-2 rounded-full transition-all ${i === reviewIdx ? "bg-gold w-8" : "bg-white/30"}`} />
             ))}
           </div>
-          <a href="https://www.google.com/search?q=Prime+Wave+Agency+reviews" target="_blank" rel="noopener" className="inline-block mt-10 bg-gold text-white font-semibold px-7 py-3 rounded-md hover:opacity-90 transition">Leave a Google Review</a>
+          <a href="https://share.google/RT2c6cmvAsyFCc1Or" target="_blank" rel="noopener" className="inline-block mt-10 bg-gold text-white font-semibold px-7 py-3 rounded-md hover:opacity-90 transition">Leave a Google Review</a>
         </div>
       </section>
 
-      {/* SECTION 8: FINAL CTA */}
+      {/* PROCESS-LIKE / FINAL CTA */}
       <CTASection />
+
+      {/* MAP */}
+      <section className="bg-surface py-20">
+        <div className="container-pw">
+          <div className="text-center mb-8">
+            <span className="label-accent">Where We Are</span>
+            <h2 className="text-3xl md:text-4xl mt-3 text-navy">Find Us on the Map</h2>
+            <p className="mt-3 text-muted-foreground">Based in Canada · Serving clients worldwide.</p>
+          </div>
+          <div className="rounded-3xl overflow-hidden shadow-2xl border border-border">
+            <iframe
+              title="Prime Wave Agency on Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.7952466750515!2d-79.38318492346663!3d43.64255507110458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d68bf33a9b%3A0x15edd8c4de1bc7e9!2sToronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sca!4v1699564732456!5m2!1sen!2sca"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
