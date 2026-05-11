@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { Mail, MessageCircle, MapPin, Clock, Instagram, Send, Loader2, CheckCircle2 } from "lucide-react";
+import { PageHero } from "@/components/PageHero";
+import { Mail, MessageCircle, MapPin, Clock, Instagram, Send, Loader2, CheckCircle2, Linkedin, Star } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
