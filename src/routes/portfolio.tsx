@@ -59,7 +59,7 @@ function Portfolio() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visible.map((p, i) => (
               <ScrollReveal key={p.url} delay={i * 40}>
-                <a href={`https://${p.url}`} target="_blank" rel="noopener" className="block bg-surface rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <a href={`https://${p.url}`} target="_blank" rel="noopener" className="block bg-surface rounded-2xl border border-border overflow-hidden lift-3d tilt-3d group">
                   <div className="h-44 bg-gradient-to-br from-navy to-[#2a3a5e] relative flex items-center justify-center">
                     <div className="absolute inset-0 bg-grid opacity-40" />
                     <span className="relative text-white font-display font-bold text-lg md:text-xl text-center px-4">{p.url}</span>
