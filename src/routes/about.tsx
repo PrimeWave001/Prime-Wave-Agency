@@ -174,7 +174,7 @@ function About() {
 
       <section className="bg-gold text-white py-14">
         <div className="container-pw grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          {[{ v: 15, s: "+", l: "Projects" }, { v: 80, s: "+", l: "Clients" }, { v: 5, s: "+", l: "Years" }, { v: 98, s: "%", l: "Satisfaction" }].map((x) => (
+          {[{ v: 50, s: "+", l: "Projects" }, { v: 80, s: "+", l: "Clients" }, { v: 5, s: "+", l: "Years" }, { v: 98, s: "%", l: "Satisfaction" }].map((x) => (
             <div key={x.l}>
               <div className="text-4xl md:text-5xl font-bold font-display"><AnimatedCounter value={x.v} suffix={x.s} /></div>
               <p className="mt-2 text-sm font-medium uppercase tracking-wider">{x.l}</p>
