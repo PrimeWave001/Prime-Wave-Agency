@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CTASection } from "@/components/CTASection";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
