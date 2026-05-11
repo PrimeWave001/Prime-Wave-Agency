@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { PageHero } from "@/components/PageHero";
 import { Gauge, Smartphone, Search, Target, Users, Lightbulb, CheckCircle2, AlertCircle } from "lucide-react";
 
 export const Route = createFileRoute("/free-audit")({
