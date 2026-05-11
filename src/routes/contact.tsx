@@ -35,13 +35,11 @@ function Contact() {
   }
   return (
     <>
-      <section className="bg-navy text-white pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-pw relative text-center">
-          <span className="label-accent">Contact</span>
-          <h1 className="text-4xl md:text-6xl mt-3">Let Us Talk About Your Project</h1>
-        </div>
-      </section>
+      <PageHero
+        label="Contact"
+        title="Let Us Talk About Your Project"
+        image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1800&q=60"
+      />
 
       <section className="bg-white py-24">
         <div className="container-pw grid lg:grid-cols-2 gap-12">
