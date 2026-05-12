@@ -25,6 +25,9 @@ const POST_DATES = [
   "May 01, 2026",
   "May 04, 2026",
   "May 09, 2026",
+  "May 11, 2026",
+  "May 12, 2026",
+  "May 12, 2026",
 ];
 
 type RawPost = Omit<Post, "image" | "date">;
@@ -337,11 +340,79 @@ const rawPosts: RawPost[] = [
       },
     ],
   },
+  {
+    slug: "10-web-design-trends-2026",
+    cat: "Web Design",
+    title: "10 Web Design Trends That Will Dominate 2026",
+    excerpt: "Stay ahead of the competition by understanding the design trends that top agencies are already implementing for their clients this year.",
+    readTime: "6 min read",
+    body: [
+      { heading: "Design in 2026 Is About Performance Plus Personality", paragraphs: ["Top agencies are no longer choosing between beautiful and functional. The best sites in 2026 are both, and they use the trends below to stand out without slowing down. Here are the ten design movements shaping premium websites this year."] },
+      { heading: "1. AI Generated Design Elements", paragraphs: ["Agencies use AI to generate hero illustrations, abstract backgrounds and product variations in seconds. The result is original visuals on every project without stock photo fatigue."] },
+      { heading: "2. Dark Mode Websites", paragraphs: ["Dark themes are no longer a toggle, they are the default for premium brands. Black and deep navy backgrounds with gold or neon accents feel modern, focused and high end."] },
+      { heading: "3. Micro Animations", paragraphs: ["Buttons that pulse, icons that wiggle on hover, counters that tick up. Tiny moments of motion make a site feel alive without being distracting."] },
+      { heading: "4. Glassmorphism", paragraphs: ["Frosted glass cards layered over rich backgrounds create depth and a premium feel. Used sparingly, the effect signals quality."] },
+      { heading: "5. Bold Typography", paragraphs: ["Massive headings with tight tracking are the new hero image. The right typeface alone can make a website feel like a luxury brand."] },
+      { heading: "6. Immersive Scrolling", paragraphs: ["Scroll triggered storytelling, parallax sections and pinned elements turn passive visitors into engaged readers."] },
+      { heading: "7. 3D Elements", paragraphs: ["Subtle 3D objects, tilt effects and depth layers add a tactile dimension that flat design simply cannot match."] },
+      { heading: "8. Personalization", paragraphs: ["Sites greet returning visitors by name, surface relevant content based on location and tailor offers to behavior. Personalization is now table stakes for ecommerce."] },
+      { heading: "9. Accessibility First Design", paragraphs: ["High contrast palettes, clear focus states and screen reader friendly markup are no longer optional. Inclusive design lifts conversion for everyone."] },
+      { heading: "10. Sustainable Web Design", paragraphs: ["Lightweight code, optimized images and dark backgrounds reduce energy use. Eco conscious brands proudly display their carbon footprint."] },
+      { heading: "Bring These Trends to Your Brand", paragraphs: ["At Prime Wave Agency we blend the trends above with conversion strategy so your site looks current and performs even better. Get in touch for a free design review."] },
+    ],
+  },
+  {
+    slug: "first-10-clients-new-business",
+    cat: "Business",
+    title: "How to Get Your First 10 Clients as a New Business Owner",
+    excerpt: "Starting a business is exciting but getting those first clients is the hardest part. Here is the exact strategy that works in 2026.",
+    readTime: "6 min read",
+    body: [
+      { heading: "The First Ten Clients Are the Hardest", paragraphs: ["Once you have ten paying clients you have proof, testimonials and referrals. Before that, you have nothing but conviction. The strategy below has helped dozens of new founders cross that line in under 90 days."] },
+      { heading: "1. Define Your Ideal Client", paragraphs: ["Stop chasing everyone. Pick one specific niche, learn their pain points and speak their language. A narrow positioning closes deals faster than a generic one."] },
+      { heading: "2. Leverage Your Existing Network", paragraphs: ["Email every former coworker, classmate and contact. Tell them what you do and ask if they know anyone who needs it. Referrals from warm contacts close at five times the rate of cold leads."] },
+      { heading: "3. Use Google Business Profile", paragraphs: ["Claim and optimize your Google Business Profile. For local services this single step puts you in front of buyers actively searching for what you offer."] },
+      { heading: "4. Social Media Strategy", paragraphs: ["Pick one platform where your buyers spend time and post valuable content five days a week. Consistency beats reach in the early months."] },
+      { heading: "5. Cold Outreach That Works", paragraphs: ["Personalized DMs and emails referencing something specific about the prospect convert. Generic mass blasts do not. Send fewer, better messages."] },
+      { heading: "6. The Power of Referrals", paragraphs: ["After every project ask the client for two introductions. Most will say yes. This single habit can fill your pipeline indefinitely."] },
+      { heading: "7. List on Freelance Platforms", paragraphs: ["Upwork, Fiverr and Toptal still deliver real clients to founders willing to start with smaller projects. Use them to build a portfolio fast."] },
+      { heading: "8. Create Free Value Content", paragraphs: ["Write helpful guides, record short videos and share templates. Free content builds trust at scale and brings inbound leads."] },
+      { heading: "9. Follow Up Consistently", paragraphs: ["Most deals are won on the third or fourth touch, not the first. Build a simple CRM and follow up every prospect on a regular cadence."] },
+      { heading: "10. Never Stop", paragraphs: ["The founders who win are the ones still pitching when others quit. Show up daily, refine your offer and the clients will come."] },
+      { heading: "Need a Website to Close Deals?", paragraphs: ["Prime Wave Agency builds conversion focused sites that turn visitors into qualified leads. Book a free consultation today."] },
+    ],
+  },
+  {
+    slug: "complete-beginner-guide-local-seo-2026",
+    cat: "SEO",
+    title: "The Complete Beginner Guide to Local SEO in 2026",
+    excerpt: "Local SEO is the fastest way to get your business found by customers in your area. Here is everything you need to know to get started today.",
+    readTime: "7 min read",
+    body: [
+      { heading: "What Local SEO Is and Why It Matters", paragraphs: ["Local SEO is the practice of optimizing your online presence so your business appears in local search results and on Google Maps. For service businesses and brick and mortar shops it is the single highest ROI marketing channel available."] },
+      { heading: "1. Google Business Profile Setup", paragraphs: ["Claim your profile, verify ownership and complete every field. Add high quality photos, working hours, services and a compelling description. This is the foundation of local SEO."] },
+      { heading: "2. NAP Consistency", paragraphs: ["Name, Address and Phone number must be identical everywhere your business appears online. Even minor differences confuse Google and hurt rankings."] },
+      { heading: "3. Local Keywords", paragraphs: ["Target city plus service phrases like plumber Toronto or web design Hamilton. Use them in page titles, headings and meta descriptions."] },
+      { heading: "4. Getting Reviews", paragraphs: ["Reviews are a top three local ranking factor. Ask every happy client for a Google review. Respond to every review, positive or negative, with grace."] },
+      { heading: "5. Local Backlinks", paragraphs: ["Get listed in local directories, sponsor a community event or partner with complementary businesses. Local links carry more weight than generic ones for local rankings."] },
+      { heading: "6. Mobile Optimization", paragraphs: ["Most local searches happen on phones. Your site must load in under three seconds on mobile and have tap friendly buttons."] },
+      { heading: "7. Schema Markup for Local Business", paragraphs: ["Add LocalBusiness schema to your homepage. This structured data helps Google understand your business and improves the look of your search listings."] },
+      { heading: "8. Social Signals", paragraphs: ["An active Facebook and Instagram presence reinforces your business legitimacy and drives traffic to your site, both of which help local rankings indirectly."] },
+      { heading: "9. Tracking Results", paragraphs: ["Use Google Business Profile Insights and Search Console to track impressions, calls and direction requests. What gets measured improves."] },
+      { heading: "Get Found Locally Faster", paragraphs: ["Prime Wave Agency offers complete local SEO setup and Google Business Profile optimization. Reach out for a free local SEO audit."] },
+    ],
+  },
 ];
+
+const POST_IMAGE_OVERRIDES: Record<string, string> = {
+  "10-web-design-trends-2026": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80",
+  "first-10-clients-new-business": "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1200&q=80",
+  "complete-beginner-guide-local-seo-2026": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&q=80",
+};
 
 export const posts: Post[] = rawPosts.map((p, i) => ({
   ...p,
-  image: POST_IMAGES[i % POST_IMAGES.length],
+  image: POST_IMAGE_OVERRIDES[p.slug] ?? POST_IMAGES[i % POST_IMAGES.length],
   date: POST_DATES[i % POST_DATES.length],
 }));
 
