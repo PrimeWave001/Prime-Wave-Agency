@@ -229,4 +229,18 @@ section.py-14 { padding-block: 2.1rem !important; }
 .h-scroll::-webkit-scrollbar { height: 8px; }
 .h-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
 
+/* Service row hover (home services redesign) */
+.service-row { transition: all .3s ease; padding-left: 0; }
+.service-row:hover { background: linear-gradient(90deg, rgba(211,123,41,0.08), transparent 80%); box-shadow: inset 4px 0 0 var(--gold); padding-left: 1rem; }
+
+/* Button shine sweep on hover */
+.btn-shine::before {
+  content: ""; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: skewX(-20deg);
+  transition: left .7s ease;
+  pointer-events: none;
+}
+.btn-shine:hover::before { left: 125%; }
+
 
