@@ -7,8 +7,10 @@ export function Footer() {
     <footer className="bg-navy text-white border-t-4 border-gold">
       <div className="container-pw py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
-          <img src={logo} alt="Prime Wave" className="h-16 w-auto mb-4" />
-          <p className="text-white/90 leading-relaxed font-medium" style={{ fontSize: "15px" }}>Building premium digital experiences that convert.</p>
+          <img src={logo} alt="Prime Wave" className="h-20 w-auto mb-4" />
+          <p className="text-white leading-relaxed font-medium" style={{ fontSize: "14px", opacity: 0.7, maxWidth: "320px" }}>
+            Prime Wave Agency is a premium web design and development agency based in Canada. We help ambitious businesses worldwide build powerful digital presences that attract clients, rank on Google and generate revenue around the clock. Your success is our mission.
+          </p>
         </div>
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">Navigate</h4>
