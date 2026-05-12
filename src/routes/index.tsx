@@ -9,7 +9,7 @@ import {
   Code2, Palette, Search, ShoppingBag, MessageSquare, Wrench,
   Star, ArrowRight, ExternalLink, Award, Target, Handshake, Sparkles,
   Clock, Smartphone, TrendingUp, UserCheck, DollarSign, ShieldCheck,
-  CheckCircle2, MapPin, Filter,
+  CheckCircle2, MapPin, Filter, Bot, Zap, Grid3x3,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -25,12 +25,17 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: Code2, title: "Web Design & Development", desc: "Modern, fast, conversion focused websites built on the platform that fits your goals." },
-  { icon: Palette, title: "UI/UX Design & Redesign", desc: "Beautiful, intuitive interfaces that turn visitors into loyal customers." },
-  { icon: Search, title: "Technical SEO & Auditing", desc: "Get found on Google with on page SEO, schema markup and Core Web Vitals optimization." },
+  { icon: Code2, title: "Web Design and Development", desc: "Modern, fast, conversion focused websites built on the platform that fits your goals." },
+  { icon: Palette, title: "UI UX Design and Redesign", desc: "Beautiful, intuitive interfaces that turn visitors into loyal customers." },
+  { icon: Search, title: "Technical SEO and Auditing", desc: "Get found on Google with on page SEO, schema markup and Core Web Vitals optimization." },
   { icon: ShoppingBag, title: "Ecommerce Development", desc: "Shopify and WooCommerce stores designed to maximize average order value." },
-  { icon: MessageSquare, title: "WhatsApp Automation Bot", desc: "24/7 customer service and lead capture with intelligent WhatsApp automation." },
-  { icon: Wrench, title: "Maintenance & Support", desc: "Keep your site fast, secure and updated with monthly care plans from $99." },
+  { icon: MessageSquare, title: "WhatsApp Automation Bot", desc: "24 hour customer service and lead capture with intelligent WhatsApp automation." },
+  { icon: Wrench, title: "Maintenance and Support", desc: "Keep your site fast, secure and updated with monthly care plans from $99." },
+  { icon: Bot, title: "AI Chatbot Integration", desc: "Intelligent AI chatbots that answer questions, qualify leads and book appointments around the clock." },
+  { icon: Target, title: "Landing Page Design", desc: "High converting single page websites built specifically to turn visitors into leads or customers." },
+  { icon: Zap, title: "Website Speed Optimization", desc: "Transform slow websites into lightning fast experiences with 90+ Google PageSpeed scores." },
+  { icon: MapPin, title: "Google Business Profile Setup", desc: "Complete setup and optimization so your business appears in local search and Google Maps." },
+  { icon: Grid3x3, title: "Social Media Design Package", desc: "Branded graphics, profile optimization and content templates for Instagram, Facebook and TikTok." },
 ];
 
 const whyUs = [
@@ -43,12 +48,12 @@ const whyUs = [
 ];
 
 const portfolio = [
-  { url: "brightchatter.com", platform: "Custom", type: "Redesign", desc: "Brand aligned redesign with refined IA and faster load times." },
-  { url: "mikesplumbingchicago.com", platform: "WordPress", type: "Full Design", desc: "Local service site engineered for lead generation." },
-  { url: "stamperrealtyservices.com", platform: "WordPress", type: "Full Design", desc: "Premium real estate site with custom property modules." },
+  { url: "tenthousandscarves.com", platform: "Shopify", type: "Ecommerce", desc: "Premium ecommerce experience with refined product storytelling." },
+  { url: "ravenoak.net", platform: "WordPress", type: "Full Design", desc: "Editorial site with cinematic typography and storytelling." },
+  { url: "gscottgraham.com", platform: "WordPress", type: "Full Design", desc: "Author portfolio with elegant minimal layout." },
+  { url: "axisrealty.net", platform: "WordPress", type: "Full Design", desc: "Real estate brand with custom property modules." },
+  { url: "stamperrealtyservices.com", platform: "WordPress", type: "Full Design", desc: "Premium real estate site engineered for leads." },
   { url: "sageandsanto.com", platform: "Shopify", type: "Ecommerce", desc: "High converting Shopify store with custom product pages." },
-  { url: "carolinabotanica.com", platform: "WordPress", type: "Redesign", desc: "Botanical brand refresh with elegant typography and storytelling." },
-  { url: "aquasaludable.com", platform: "Wix", type: "Full Design", desc: "Bilingual Wix build with strong local conversion focus." },
 ];
 
 const portfolioFilters = ["All", "WordPress", "Shopify", "Wix", "Custom", "Squarespace"] as const;
@@ -80,15 +85,8 @@ function HomePage() {
 
   return (
     <>
-      {/* ANNOUNCEMENT BAR */}
-      <div className="text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center" style={{ background: "linear-gradient(90deg, #D37B29, #b96720)" }}>
-        <span className="hidden sm:inline">🎉 Now Accepting New Clients in May 2026 — </span>
-        <Link to="/contact" className="underline underline-offset-2 hover:text-navy transition">Get Started Today →</Link>
-      </div>
-
-      {/* SECTION 1: HERO with parallax bg image */}
-      <section className="relative min-h-screen text-white overflow-hidden flex items-center pt-28">
-        {/* Parallax background image */}
+      {/* HERO */}
+      <section className="relative text-white overflow-hidden flex items-center" style={{ paddingTop: "100px", paddingBottom: "60px", minHeight: "92vh" }}>
         <div
           className="absolute inset-0 w-full h-[120%] bg-cover bg-center"
           style={{
@@ -98,50 +96,27 @@ function HomePage() {
             willChange: "transform",
           }}
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/95 via-navy/80 to-navy/95" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
+        {/* Strong directional gradient: very dark navy left → transparent right */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, #0d1424 0%, rgba(13,20,36,0.92) 35%, rgba(13,20,36,0.55) 70%, rgba(13,20,36,0.2) 100%)" }} />
+        <div className="absolute inset-0 bg-grid opacity-15" />
 
-        {/* floating 3D shapes */}
-        <div aria-hidden className="absolute top-24 left-10 w-40 h-40 rounded-full bg-gold/20 blur-2xl float-shape" />
-        <div aria-hidden className="absolute bottom-20 right-10 w-56 h-56 rounded-full bg-gold/15 blur-3xl float-shape-2" />
-        <div aria-hidden className="absolute top-40 right-1/3 w-24 h-24 rotate-45 bg-gold/10 border border-gold/30 float-shape" />
-        <div aria-hidden className="absolute bottom-32 left-1/4 w-16 h-16 rotate-12 bg-gold/15 rounded-xl float-shape-2" />
-        <div aria-hidden className="absolute top-1/2 left-1/2 w-20 h-20 rounded-full border-2 border-gold/30 float-shape" style={{ transform: "translate3d(-50%,-50%,0)" }} />
-
-        {/* particles */}
-        <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
-          {Array.from({ length: 22 }).map((_, i) => (
-            <span
-              key={i}
-              className="particle absolute block w-1 h-1 rounded-full bg-gold/70"
-              style={{
-                left: `${(i * 47) % 100}%`,
-                bottom: `-${(i * 7) % 30}px`,
-                animationDuration: `${10 + ((i * 3) % 14)}s`,
-                animationDelay: `${(i * 0.7) % 8}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="container-pw relative grid lg:grid-cols-2 gap-12 items-center py-16">
+        <div className="container-pw relative grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal>
-            <span className="badge-pulse inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/20 border border-gold/40 text-gold text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
+            <div className="w-20 h-[2px] bg-gold mb-5" />
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-              Now Accepting New Clients
+              Premium Web Agency
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl mt-5 leading-[1.02] font-bold drop-shadow-2xl">
+            <h1 className="mt-5 leading-[1.02] font-extrabold" style={{ fontSize: "clamp(2.5rem, 6vw, 4.25rem)" }}>
               Build a Powerful <span className="text-gradient-gold">Online Presence</span> That Converts
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/85 max-w-xl">
               We design modern, high performing websites that help businesses grow, attract clients and stand out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-2xl text-center">Get a Free Proposal</Link>
+              <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition text-center">Get a Free Proposal</Link>
               <Link to="/portfolio" className="border-2 border-white/50 text-white font-semibold px-8 py-4 rounded-md hover:bg-white hover:text-navy transition text-center backdrop-blur-sm">View Our Work</Link>
             </div>
-            {/* Trust badges */}
             <div className="flex flex-wrap gap-3 mt-8">
               {[
                 { i: Star, t: "Google Verified" },
@@ -157,30 +132,15 @@ function HomePage() {
             </div>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-gold/40 to-transparent rounded-2xl blur-2xl" />
-              <img src={founder} alt="Marcus Derrick, Founder" className="relative rounded-2xl shadow-2xl border-2 border-gold/40 bg-navy w-full h-auto animate-float" />
-
-              {/* Floating notification card */}
-              <div className="notif-pop absolute -bottom-6 -left-6 md:-left-10 bg-white text-navy rounded-2xl shadow-2xl p-4 max-w-[260px] border-l-4 border-gold">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gold/15 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="text-gold" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold leading-tight">John from Toronto</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">just requested a free proposal</p>
-                    <p className="text-[10px] uppercase tracking-wider text-gold font-bold mt-1">2 minutes ago</p>
-                  </div>
-                </div>
-              </div>
+            <div className="relative flex justify-end">
+              <img src={founder} alt="Marcus Derrick, Founder" className="relative w-full max-w-[520px] h-auto animate-float" style={{ filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.5))" }} />
             </div>
           </ScrollReveal>
         </div>
       </section>
-      <WaveDivider from="var(--navy)" to="#D37B29" />
+      <WaveDivider from="#0d1424" to="#D37B29" />
 
-      {/* SECTION 2: STATS with 3D flip */}
+      {/* STATS */}
       <section className="bg-gold text-white py-14">
         <div className="container-pw grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {[
@@ -197,7 +157,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 3: ABOUT SUMMARY (image RIGHT) */}
+      {/* ABOUT SUMMARY */}
       <section className="bg-white py-24">
         <div className="container-pw grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal>
@@ -224,7 +184,7 @@ function HomePage() {
             <div className="relative">
               <div className="absolute -top-6 -right-6 w-32 h-32 border-4 border-gold rounded-2xl" />
               <div className="absolute -bottom-6 -left-6 w-32 h-32 border-4 border-navy rounded-2xl" />
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-navy">
                 <img src={founder} alt="Marcus Derrick" className="w-full" />
               </div>
             </div>
@@ -232,57 +192,46 @@ function HomePage() {
         </div>
       </section>
 
-      {/* SECTION A: SERVICES — horizontal scroll showcase */}
-      <section
-        className="relative py-24 text-white overflow-hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(31,42,68,0.92), rgba(31,42,68,0.92)), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1800&q=60)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="container-pw">
+      {/* SERVICES — REDESIGNED */}
+      <section className="bg-navy text-white py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-10" />
+        <div className="container-pw relative">
           <ScrollReveal>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-              <div>
-                <span className="label-accent">What We Do</span>
-                <h2 className="text-3xl md:text-5xl mt-3">Premium Services for Ambitious Businesses</h2>
-              </div>
-              <p className="text-white/70 max-w-md text-sm">Scroll horizontally to explore every service we offer →</p>
+            <div className="text-center mb-14">
+              <div className="w-16 h-[2px] bg-gold mx-auto mb-4" />
+              <span className="label-accent">What We Do</span>
+              <h2 className="text-3xl md:text-5xl mt-3 font-extrabold">Premium Services for Ambitious Businesses</h2>
             </div>
           </ScrollReveal>
-        </div>
-        <div className="h-scroll overflow-x-auto pb-6">
-          <div className="flex gap-6 px-6 md:px-[max(1.25rem,calc((100vw-1200px)/2))]">
-            {services.map((s, i) => {
-              const dark = i % 2 === 0;
-              return (
-                <div
-                  key={s.title}
-                  className={`tilt-3d shrink-0 w-[320px] md:w-[360px] rounded-2xl p-7 border-t-4 border-transparent hover:border-gold transition-all ${dark ? "bg-navy text-white border border-white/10" : "bg-white text-navy"}`}
-                >
-                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${dark ? "bg-gold/15" : "bg-gold/10"}`}>
-                    <s.icon className="text-gold" size={28} />
+
+          <div className="grid md:grid-cols-2 gap-x-12">
+            {services.map((s, i) => (
+              <ScrollReveal key={s.title} delay={i * 60}>
+                <div className="service-row group flex items-start gap-6 py-7 border-b border-white/10 transition-all">
+                  <div className="font-display font-extrabold text-gold leading-none shrink-0" style={{ fontSize: "3rem", width: "85px" }}>
+                    {String(i + 1).padStart(2, "0")}
                   </div>
-                  <h3 className={`text-xl mb-2 ${dark ? "text-white" : "text-navy"}`}>{s.title}</h3>
-                  <p className={`text-sm leading-relaxed ${dark ? "text-white/70" : "text-muted-foreground"}`}>{s.desc}</p>
-                  <a
-                    href={"https://wa.me/12268556194?text=" + encodeURIComponent(`Hi Prime Wave! I would like a quote for ${s.title}.`)}
-                    target="_blank"
-                    rel="noopener"
-                    className="mt-6 inline-flex items-center gap-2 bg-gold text-white font-semibold px-5 py-2.5 rounded-md hover:opacity-90 transition text-sm"
-                  >
-                    Get a Quote <ArrowRight size={16} />
-                  </a>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <s.icon className="text-gold shrink-0" size={22} />
+                      <h3 className="text-lg md:text-xl font-bold text-white">{s.title}</h3>
+                    </div>
+                    <p className="text-sm text-white/65 leading-relaxed">{s.desc}</p>
+                  </div>
                 </div>
-              );
-            })}
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/services" className="inline-flex items-center gap-2 bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition">
+              Explore All Services <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* SECTION B: WHY CHOOSE US — bold two column layout */}
+      {/* WHY CHOOSE US */}
       <section className="bg-white py-24">
         <div className="container-pw grid lg:grid-cols-2 gap-14 items-start">
           <ScrollReveal>
@@ -291,8 +240,8 @@ function HomePage() {
               Why clients choose <span className="text-gold">Prime Wave</span>
             </h2>
             <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-              We're not the cheapest agency on the internet, and we're proud of it. Our clients hire us because they want results that
-              outlast trends — websites built on excellence, transparency and a real partnership focused on their growth.
+              We are not the cheapest agency on the internet, and we are proud of it. Our clients hire us because they want results that
+              outlast trends, websites built on excellence, transparency and a real partnership focused on their growth.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-lg inline-flex items-center gap-2">
@@ -330,10 +279,9 @@ function HomePage() {
         </div>
       </section>
 
-      {/* SECTION C: PORTFOLIO — full-width dark with filter bar */}
+      {/* PORTFOLIO */}
       <section className="bg-navy text-white py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-15" />
-        <div aria-hidden className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gold/10 blur-3xl float-shape" />
         <div className="container-pw relative">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -426,16 +374,14 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PROCESS-LIKE / FINAL CTA */}
       <CTASection />
 
-      {/* MAP */}
       <section className="bg-surface py-20">
         <div className="container-pw">
           <div className="text-center mb-8">
             <span className="label-accent">Where We Are</span>
             <h2 className="text-3xl md:text-4xl mt-3 text-navy">Find Us on the Map</h2>
-            <p className="mt-3 text-muted-foreground">Based in Canada · Serving clients worldwide.</p>
+            <p className="mt-3 text-muted-foreground">Based in Canada. Serving clients worldwide.</p>
           </div>
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-border">
             <iframe
