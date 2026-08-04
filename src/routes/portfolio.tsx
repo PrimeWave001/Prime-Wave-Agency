@@ -18,7 +18,9 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
+  { url: "pristinelivingsevices.com", platform: "WordPress", type: "Full Design" },
   { url: "tenthousandscarves.com", platform: "Shopify", type: "Ecommerce" },
+
   { url: "ravenoak.net", platform: "WordPress", type: "Full Design" },
   { url: "gscottgraham.com", platform: "WordPress", type: "Full Design" },
   { url: "jovelinehead.com", platform: "WordPress", type: "Full Design" },
