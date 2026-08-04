@@ -19,16 +19,20 @@ const POST_IMAGES = [
 ];
 
 const POST_DATES = [
-  "March 12, 2026",
-  "April 02, 2026",
-  "April 18, 2026",
-  "May 01, 2026",
-  "May 04, 2026",
-  "May 09, 2026",
-  "May 11, 2026",
-  "May 12, 2026",
-  "May 12, 2026",
+  "July 28, 2026",
+  "July 21, 2026",
+  "July 14, 2026",
+  "June 30, 2026",
+  "June 16, 2026",
+  "June 02, 2026",
+  "May 19, 2026",
+  "May 05, 2026",
+  "April 21, 2026",
+  "April 07, 2026",
+  "March 24, 2026",
+  "March 10, 2026",
 ];
+
 
 type RawPost = Omit<Post, "image" | "date">;
 const rawPosts: RawPost[] = [
