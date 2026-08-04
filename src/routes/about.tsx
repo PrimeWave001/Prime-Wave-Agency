@@ -144,16 +144,14 @@ function About() {
               <h2 className="text-3xl md:text-4xl mt-3 text-navy">Find Us on Fiverr</h2>
             </div>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-1 gap-6 max-w-xl mx-auto">
             {[
-              { name: "Katherine", level: "Level 1 Seller", desc: "UI UX Design and WordPress Development specialist", url: "https://www.fiverr.com/katherine_g301" },
-              { name: "Chery", level: "New Seller", desc: "Web Design and Development specialist", url: "https://www.fiverr.com/chery_mcneely" },
+              { name: "Katherine", desc: "UI UX Design and WordPress Development specialist", url: "https://www.fiverr.com/users/katherinegilmor/" },
             ].map((c) => (
               <ScrollReveal key={c.name}>
                 <div className="bg-white rounded-2xl border border-border p-7 hover:shadow-xl hover:-translate-y-1 transition-all" style={{ borderTopColor: "#1DBF73", borderTopWidth: 4 }}>
                   <div className="flex items-center justify-between mb-5">
                     <div className="font-display font-extrabold text-2xl" style={{ color: "#1DBF73" }}>fiverr<span style={{ color: "#1DBF73" }}>.</span></div>
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full text-white" style={{ background: "#1DBF73" }}>{c.level}</span>
                   </div>
                   <h3 className="text-2xl text-navy">{c.name}</h3>
                   <div className="flex items-center gap-1 mt-2">
@@ -168,6 +166,7 @@ function About() {
               </ScrollReveal>
             ))}
           </div>
+
           <p className="text-center text-sm text-muted-foreground mt-8">Trusted by clients worldwide on Fiverr and beyond</p>
         </div>
       </section>
