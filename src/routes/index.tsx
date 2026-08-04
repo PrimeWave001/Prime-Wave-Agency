@@ -48,7 +48,9 @@ const whyUs = [
 ];
 
 const portfolio = [
+  { url: "pristinelivingsevices.com", platform: "WordPress", type: "Full Design", desc: "Clean service brand site built to convert local enquiries." },
   { url: "tenthousandscarves.com", platform: "Shopify", type: "Ecommerce", desc: "Premium ecommerce experience with refined product storytelling." },
+
   { url: "ravenoak.net", platform: "WordPress", type: "Full Design", desc: "Editorial site with cinematic typography and storytelling." },
   { url: "gscottgraham.com", platform: "WordPress", type: "Full Design", desc: "Author portfolio with elegant minimal layout." },
   { url: "axisrealty.net", platform: "WordPress", type: "Full Design", desc: "Real estate brand with custom property modules." },
