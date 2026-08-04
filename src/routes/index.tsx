@@ -86,58 +86,55 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative text-white overflow-hidden flex items-center" style={{ paddingTop: "100px", paddingBottom: "60px", minHeight: "92vh" }}>
+      <section className="relative text-white overflow-hidden flex items-center" style={{ paddingTop: "120px", paddingBottom: "90px", minHeight: "92vh" }}>
         <div
           className="absolute inset-0 w-full h-[120%] bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=80)",
+              "url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=2000&q=80)",
             transform: `translateY(${parallaxY}px)`,
             willChange: "transform",
           }}
         />
-        {/* Strong directional gradient: very dark navy left → transparent right */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, #0d1424 0%, rgba(13,20,36,0.92) 35%, rgba(13,20,36,0.55) 70%, rgba(13,20,36,0.2) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(13,20,36,0.92) 0%, rgba(13,20,36,0.85) 50%, rgba(13,20,36,0.95) 100%)" }} />
         <div className="absolute inset-0 bg-grid opacity-15" />
 
-        <div className="container-pw relative grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container-pw relative">
           <ScrollReveal>
-            <div className="w-20 h-[2px] bg-gold mb-5" />
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-              Premium Web Agency
-            </span>
-            <h1 className="mt-5 leading-[1.02] font-extrabold" style={{ fontSize: "clamp(2.5rem, 6vw, 4.25rem)" }}>
-              Build a Powerful <span className="text-gradient-gold">Online Presence</span> That Converts
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/85 max-w-xl">
-              We design modern, high performing websites that help businesses grow, attract clients and stand out.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition text-center">Get a Free Proposal</Link>
-              <Link to="/portfolio" className="border-2 border-white/50 text-white font-semibold px-8 py-4 rounded-md hover:bg-white hover:text-navy transition text-center backdrop-blur-sm">View Our Work</Link>
-            </div>
-            <div className="flex flex-wrap gap-3 mt-8">
-              {[
-                { i: Star, t: "Google Verified" },
-                { i: CheckCircle2, t: "50+ Projects" },
-                { i: MapPin, t: "Canada Based" },
-                { i: TrendingUp, t: "Worldwide Service" },
-              ].map((b) => (
-                <div key={b.t} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold backdrop-blur-sm">
-                  <b.i size={14} className="text-gold" />
-                  {b.t}
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={200}>
-            <div className="relative flex justify-end">
-              <img src={founder} alt="Marcus Derrick, Founder" className="relative w-full max-w-[520px] h-auto animate-float" style={{ filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.5))" }} />
+            <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+              <div className="w-20 h-[2px] bg-gold mb-5" />
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                Premium Web Agency
+              </span>
+              <h1 className="mt-5 leading-[1.02] font-extrabold" style={{ fontSize: "clamp(2.5rem, 6.5vw, 4.75rem)" }}>
+                Build a Powerful <span className="text-gradient-gold">Online Presence</span> That Converts
+              </h1>
+              <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl mx-auto">
+                We design modern, high performing websites that help businesses grow, attract clients and stand out.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
+                <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition text-center">Get a Free Proposal</Link>
+                <Link to="/portfolio" className="border-2 border-white/50 text-white font-semibold px-8 py-4 rounded-md hover:bg-white hover:text-navy transition text-center backdrop-blur-sm">View Our Work</Link>
+              </div>
+              <div className="flex flex-wrap gap-3 mt-8 justify-center">
+                {[
+                  { i: Star, t: "Google Verified" },
+                  { i: CheckCircle2, t: "50+ Projects" },
+                  { i: MapPin, t: "Canada Based" },
+                  { i: TrendingUp, t: "Worldwide Service" },
+                ].map((b) => (
+                  <div key={b.t} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold backdrop-blur-sm">
+                    <b.i size={14} className="text-gold" />
+                    {b.t}
+                  </div>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
       <WaveDivider from="#0d1424" to="#D37B29" />
 
       {/* STATS */}
