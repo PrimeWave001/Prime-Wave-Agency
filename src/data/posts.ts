@@ -19,19 +19,76 @@ const POST_IMAGES = [
 ];
 
 const POST_DATES = [
-  "March 12, 2026",
-  "April 02, 2026",
-  "April 18, 2026",
-  "May 01, 2026",
-  "May 04, 2026",
-  "May 09, 2026",
-  "May 11, 2026",
-  "May 12, 2026",
-  "May 12, 2026",
+  "July 28, 2026",
+  "July 21, 2026",
+  "July 14, 2026",
+  "June 30, 2026",
+  "June 16, 2026",
+  "June 02, 2026",
+  "May 19, 2026",
+  "May 05, 2026",
+  "April 21, 2026",
+  "April 07, 2026",
+  "March 24, 2026",
+  "March 10, 2026",
 ];
+
 
 type RawPost = Omit<Post, "image" | "date">;
 const rawPosts: RawPost[] = [
+  {
+    slug: "ai-website-experiences-2026",
+    cat: "AI",
+    title: "How AI Is Changing Website Experiences in 2026",
+    excerpt: "From instant answers to personalized journeys, AI has moved from novelty to expectation. Here is how smart businesses are using it today.",
+    readTime: "7 min read",
+    body: [
+      { heading: "AI Is Now Part of the User Interface", paragraphs: ["Two years ago an AI chatbot on a small business website felt experimental. In 2026 visitors expect instant, accurate answers the moment they land. AI is no longer a widget bolted onto the corner of a page, it is part of how people navigate, search and decide."] },
+      { heading: "Instant Answers Beat Contact Forms", paragraphs: ["A traditional contact form asks a visitor to wait. An AI assistant trained on your services, pricing and process answers in seconds and captures the lead at the same time. Businesses that made this switch routinely see a large lift in qualified enquiries because the conversation starts while intent is highest."] },
+      { heading: "Personalized Content Without a Developer", paragraphs: ["Modern sites adapt headlines, featured services and calls to action based on the visitor location, referral source and previous visits. What used to require an enterprise budget now runs on lightweight logic and a well structured content model."] },
+      { heading: "AI Assisted Design and Copy", paragraphs: ["Design teams use AI to generate layout variations, imagery and first draft copy, then apply human judgement to the result. The gain is speed, not replacement. Projects that once took eight weeks now ship in four with the same quality bar."] },
+      { heading: "Where AI Still Gets It Wrong", paragraphs: ["Generic AI content ranks poorly and reads flat. Search engines reward experience and specificity, which means your case studies, photos and real numbers matter more than ever. Use AI for scaffolding and speed, never as the final voice of your brand."], pullQuote: "Use AI to move faster, not to sound like everyone else." },
+      { heading: "Getting Started the Right Way", paragraphs: ["Start with one high value use case such as answering pre sale questions or booking consultations. Feed the assistant accurate source material, review transcripts weekly and expand only once the first use case performs."] },
+      { heading: "Add AI to Your Website", paragraphs: ["Prime Wave Agency builds AI assistants and automation directly into client websites so you capture more leads without hiring more staff. Contact us for a free consultation."] },
+    ],
+  },
+  {
+    slug: "core-web-vitals-checklist-2026",
+    cat: "Performance",
+    title: "The 2026 Core Web Vitals Checklist for Small Business Sites",
+    excerpt: "Google still ranks fast sites higher and slow pages still lose customers. Use this practical checklist to score green across the board.",
+    readTime: "6 min read",
+    body: [
+      { heading: "Speed Is Still a Revenue Metric", paragraphs: ["Every additional second of load time costs conversions. Core Web Vitals measure the three moments that matter most to a visitor: when the page appears useful, how quickly it responds and whether it stays visually stable while loading."] },
+      { heading: "1. Largest Contentful Paint Under 2.5 Seconds", paragraphs: ["Compress and correctly size your hero image, serve modern formats and preload the single most important asset. On most small business sites an oversized hero image is the entire problem."] },
+      { heading: "2. Interaction to Next Paint Under 200 Milliseconds", paragraphs: ["Heavy third party scripts, chat widgets and tracking pixels block the main thread. Load them after the page is interactive and remove anything you do not actively use."] },
+      { heading: "3. Cumulative Layout Shift Under 0.1", paragraphs: ["Reserve space for images, embeds and ads by setting explicit dimensions. Load fonts with a matched fallback so text does not jump when the brand font arrives."] },
+      { heading: "4. Trim the Plugin Stack", paragraphs: ["On WordPress the fastest performance win is usually deleting plugins. Each one adds queries, scripts and styles. Audit quarterly and keep only what earns its place."] },
+      { heading: "5. Serve From the Edge", paragraphs: ["A content delivery network puts your assets physically closer to visitors. For a site serving multiple countries this alone can cut load time in half."] },
+      { heading: "6. Measure With Real Users", paragraphs: ["Lab scores are a guide, field data is the truth. Watch your real user metrics monthly rather than chasing a single perfect lab score."] },
+      { heading: "Want a Free Speed Audit?", paragraphs: ["Prime Wave Agency runs a full performance and Core Web Vitals audit on your site and sends you a prioritized fix list. Request your free audit today."] },
+    ],
+  },
+  {
+    slug: "website-redesign-signs-2026",
+    cat: "Business",
+    title: "8 Signs Your Website Needs a Redesign This Year",
+    excerpt: "A dated website quietly costs you credibility and leads every single day. Here is how to tell whether yours is due for a rebuild.",
+    readTime: "6 min read",
+    body: [
+      { heading: "Websites Age Faster Than Businesses Do", paragraphs: ["The average business website starts to feel dated after three years. Design standards move, devices change and buyer expectations rise. The good news is that the warning signs are easy to spot once you know what to look for."] },
+      { heading: "1. It Looks Wrong on a Phone", paragraphs: ["More than two thirds of visitors arrive on mobile. Pinching to zoom, cramped buttons or a menu that will not open are immediate exits."] },
+      { heading: "2. Pages Take More Than Three Seconds", paragraphs: ["Slow load times destroy both rankings and trust. If your homepage is not usable within three seconds you are losing a measurable share of visitors."] },
+      { heading: "3. Traffic Is Flat or Falling", paragraphs: ["Declining organic traffic usually points at thin content, weak technical SEO or a structure search engines struggle to crawl."] },
+      { heading: "4. Visitors Do Not Convert", paragraphs: ["Traffic without enquiries means the message, the offer or the path to contact you is unclear. A redesign focused on conversion often lifts leads without any increase in traffic."] },
+      { heading: "5. You Cannot Update It Yourself", paragraphs: ["If changing a phone number requires a developer, your site is a liability. Modern builds let your team edit content safely."] },
+      { heading: "6. It Does Not Match Your Brand Anymore", paragraphs: ["Businesses evolve. When your site describes services you no longer offer or uses colours you abandoned, it undercuts every other marketing effort."] },
+      { heading: "7. Competitors Look More Credible", paragraphs: ["Buyers compare. If three competitor sites feel modern and yours does not, you lose the deal before the first conversation."] },
+      { heading: "8. There Is No Analytics or Tracking", paragraphs: ["Without data you are guessing. A rebuild is the right moment to install proper analytics, conversion tracking and clear reporting."] },
+      { heading: "Ready for a Site That Performs?", paragraphs: ["Prime Wave Agency redesigns websites around conversion, speed and search visibility. Get a free proposal and see what your site could be doing for you."] },
+    ],
+  },
+
   {
     slug: "5-reasons-your-website-is-losing-clients",
     cat: "Web Design",
