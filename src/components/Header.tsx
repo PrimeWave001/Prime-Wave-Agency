@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoAsset from "@/assets/primewave-logo.png.asset.json";
+const logo = logoAsset.url;
 
 const navLinks = [
   { to: "/", label: "Home" },
