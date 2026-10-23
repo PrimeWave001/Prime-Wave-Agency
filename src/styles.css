@@ -1,7 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -32,34 +32,36 @@
   --color-navy: var(--navy);
   --color-gold: var(--gold);
   --color-surface: var(--surface);
-  --font-display: 'Poppins', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.24 0.04 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.04 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.24 0.04 260);
-  --primary: oklch(0.27 0.05 260);          /* #1f2a44 */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.005 260);
-  --secondary-foreground: oklch(0.27 0.05 260);
-  --muted: oklch(0.97 0.005 260);
-  --muted-foreground: oklch(0.55 0.02 260);
-  --accent: oklch(0.68 0.15 55);            /* #D37B29 */
-  --accent-foreground: oklch(1 0 0);
+  --radius: 0.75rem;
+  /* Midnight Blue design system */
+  --background: #070B1A;
+  --foreground: #F5F7FA;
+  --card: #0F1630;
+  --card-foreground: #F5F7FA;
+  --popover: #0F1630;
+  --popover-foreground: #F5F7FA;
+  --primary: #0B5FFF;
+  --primary-foreground: #ffffff;
+  --secondary: #0F1630;
+  --secondary-foreground: #F5F7FA;
+  --muted: #0F1630;
+  --muted-foreground: #8A93A6;
+  --accent: #38B6FF;
+  --accent-foreground: #070B1A;
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.01 260);
-  --input: oklch(0.92 0.01 260);
-  --ring: oklch(0.68 0.15 55);
-  --navy: oklch(0.27 0.05 260);
-  --gold: oklch(0.68 0.15 55);
-  --surface: oklch(0.98 0.005 260);         /* #f8f9fc */
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #0B5FFF;
+  /* Legacy aliases — old pages keep working until rebuilt */
+  --navy: #070B1A;
+  --gold: #0B5FFF;
+  --surface: #0F1630;
 }
 
 @layer base {
@@ -70,7 +72,12 @@
     color: var(--color-foreground);
     font-family: var(--font-body);
   }
-  h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-foreground);
+  }
 }
 
 @layer utilities {
@@ -85,13 +92,43 @@
   .container-pw { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
   .reveal.visible { opacity: 1; transform: none; }
-  .text-gradient-gold { background: linear-gradient(135deg, oklch(0.78 0.16 60), oklch(0.62 0.16 50)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .text-gradient-gold, .text-gradient-blue {
+    background: linear-gradient(135deg, #0B5FFF, #38B6FF);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  /* Legacy aliases mapped to Midnight Blue */
   .bg-navy { background-color: var(--navy); }
   .bg-surface { background-color: var(--surface); }
-  .bg-gold { background-color: var(--gold); }
-  .text-navy { color: var(--navy); }
-  .text-gold { color: var(--gold); }
-  .border-gold { border-color: var(--gold); }
+  .bg-gold { background-color: var(--primary); }
+  .text-navy { color: var(--color-foreground); }
+  .text-gold { color: var(--color-accent); }
+  .border-gold { border-color: var(--color-accent); }
+  /* Old light sections become dark cards until pages are rebuilt */
+  section.bg-white { background-color: var(--card); }
+  section .bg-white { background-color: var(--card); }
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: var(--primary); color: #fff; font-weight: 600;
+    border-radius: 12px; padding: 0.9rem 2rem;
+    transition: all .25s ease;
+  }
+  .btn-primary:hover { box-shadow: 0 0 32px rgba(11, 95, 255, 0.55); filter: brightness(1.08); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    background: transparent; color: var(--color-foreground); font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 0.9rem 2rem;
+    transition: all .25s ease;
+  }
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.3); }
+  .card-dark {
+    background: var(--card); border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+  }
+  .glow-blue {
+    position: absolute; border-radius: 9999px; pointer-events: none;
+    background: radial-gradient(circle, rgba(11, 95, 255, 0.28), transparent 70%);
+    filter: blur(60px);
+  }
 }
 
 @keyframes pulseRing {
@@ -119,8 +156,8 @@
 }
 .bg-grid {
   background-image:
-    linear-gradient(rgba(211,123,41,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(211,123,41,0.08) 1px, transparent 1px);
+    linear-gradient(rgba(56, 182, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 182, 255, 0.07) 1px, transparent 1px);
   background-size: 60px 60px;
   animation: drift 20s linear infinite;
 }
@@ -137,16 +174,9 @@
 }
 .float-shape-2 { animation: floatShape2 18s ease-in-out infinite; }
 
-@keyframes particleRise {
-  0% { transform: translateY(0); opacity: 0; }
-  10% { opacity: 0.6; }
-  100% { transform: translateY(-120vh); opacity: 0; }
-}
-.particle { animation: particleRise linear infinite; }
-
 @keyframes badgePulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(211,123,41,0.5); }
-  50% { box-shadow: 0 0 0 10px rgba(211,123,41,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(11, 95, 255, 0.5); }
+  50% { box-shadow: 0 0 0 10px rgba(11, 95, 255, 0); }
 }
 .badge-pulse { animation: badgePulse 2.5s ease-in-out infinite; }
 
@@ -158,9 +188,9 @@ section.py-14 { padding-block: 2.1rem !important; }
 
 /* 3D tilt / lift effects */
 .tilt-3d { transition: transform .4s ease, box-shadow .4s ease; transform-style: preserve-3d; perspective: 1000px; }
-.tilt-3d:hover { transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateZ(20px); box-shadow: 0 30px 60px -20px rgba(31,42,68,0.35); }
+.tilt-3d:hover { transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateZ(20px); box-shadow: 0 30px 60px -20px rgba(11, 95, 255, 0.35); }
 .lift-3d { transition: transform .4s ease, box-shadow .4s ease; }
-.lift-3d:hover { transform: translateY(-12px) translateZ(0); box-shadow: 0 30px 60px -20px rgba(31,42,68,0.35); }
+.lift-3d:hover { transform: translateY(-12px) translateZ(0); box-shadow: 0 30px 60px -20px rgba(11, 95, 255, 0.35); }
 
 /* Numeric flip animation */
 @keyframes flipIn {
@@ -169,21 +199,21 @@ section.py-14 { padding-block: 2.1rem !important; }
 }
 .flip-in { animation: flipIn .9s cubic-bezier(.2,.8,.2,1) both; transform-style: preserve-3d; }
 
-/* Big 3D number on Why Us */
+/* Big accent number (Why Us) */
 .num-3d {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 3.25rem;
-  background: linear-gradient(180deg, var(--gold), oklch(0.5 0.15 50));
+  background: linear-gradient(180deg, #38B6FF, #0B5FFF);
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  text-shadow: 0 6px 14px rgba(211,123,41,0.25);
+  text-shadow: 0 6px 14px rgba(11, 95, 255, 0.25);
   line-height: 1;
 }
 
 /* Scroll progress bar */
 .scroll-progress {
   position: fixed; top: 0; left: 0; height: 3px; width: 0;
-  background: linear-gradient(90deg, var(--gold), oklch(0.78 0.16 60));
+  background: linear-gradient(90deg, #0B5FFF, #38B6FF);
   z-index: 60; transition: width .15s ease-out;
 }
 
@@ -194,17 +224,22 @@ section.py-14 { padding-block: 2.1rem !important; }
 @media (max-width: 768px) { .parallax-bg { background-attachment: scroll; } }
 
 /* Glass header when scrolled */
-.glass-nav { background: rgba(31,42,68,0.7); backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.glass-nav {
+  background: rgba(7, 11, 26, 0.8);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
 /* Pull quote in blog */
 .pull-quote {
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid var(--accent);
   padding: 1rem 1.5rem;
   margin: 2rem 0;
   font-family: var(--font-display);
   font-size: 1.35rem;
   line-height: 1.5;
-  color: var(--gold);
+  color: var(--color-accent);
   font-weight: 600;
   font-style: italic;
 }
@@ -216,7 +251,7 @@ section.py-14 { padding-block: 2.1rem !important; }
 }
 .slide-in-left { animation: slideInLeft .8s ease-out both; }
 
-/* Notification toast (hero floating card) */
+/* Notification toast */
 @keyframes notifPop {
   0% { transform: translateY(20px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
@@ -227,11 +262,11 @@ section.py-14 { padding-block: 2.1rem !important; }
 .h-scroll { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
 .h-scroll > * { scroll-snap-align: start; }
 .h-scroll::-webkit-scrollbar { height: 8px; }
-.h-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+.h-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
 
-/* Service row hover (home services redesign) */
+/* Service row hover */
 .service-row { transition: all .3s ease; padding-left: 0; }
-.service-row:hover { background: linear-gradient(90deg, rgba(211,123,41,0.08), transparent 80%); box-shadow: inset 4px 0 0 var(--gold); padding-left: 1rem; }
+.service-row:hover { background: linear-gradient(90deg, rgba(11, 95, 255, 0.08), transparent 80%); box-shadow: inset 4px 0 0 var(--primary); padding-left: 1rem; }
 
 /* Button shine sweep on hover */
 .btn-shine::before {
@@ -240,7 +275,6 @@ section.py-14 { padding-block: 2.1rem !important; }
   transform: skewX(-20deg);
   transition: left .7s ease;
   pointer-events: none;
+  overflow: hidden;
 }
 .btn-shine:hover::before { left: 125%; }
-
-

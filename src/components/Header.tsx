@@ -30,11 +30,11 @@ export function Header() {
   useEffect(() => { setOpen(false); }, [loc.pathname]);
 
   const transparent = isHome && !scrolled;
-  const linkColor = transparent ? "text-white/90 hover:text-gold" : "text-navy hover:text-gold";
-  const iconColor = transparent ? "text-white" : "text-navy";
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${transparent ? "bg-transparent" : "bg-white shadow-md"}`}>
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${transparent ? "bg-transparent" : "glass-nav"}`}
+    >
       <div className="container-pw flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Prime Wave Agency" className="h-12 w-auto" />
@@ -44,28 +44,28 @@ export function Header() {
             <Link
               key={l.to}
               to={l.to}
-              className={`text-sm font-medium transition-colors ${linkColor}`}
-              activeProps={{ className: "text-gold" }}
+              className={`text-sm font-medium transition-colors text-[#F5F7FA]/80 hover:text-[#38B6FF]`}
+              activeProps={{ className: "text-[#38B6FF]" }}
             >
               {l.label}
             </Link>
           ))}
-          <Link to="/contact" className="bg-gold text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:opacity-90 transition shadow-md">
+          <Link to="/contact" className="btn-primary !py-2.5 !px-5 text-sm shadow-lg">
             Get a Free Proposal
           </Link>
         </nav>
-        <button className={`lg:hidden ${iconColor}`} onClick={() => setOpen((o) => !o)} aria-label="Menu">
+        <button className={`lg:hidden text-[#F5F7FA]`} onClick={() => setOpen((o) => !o)} aria-label="Menu">
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
-      <div className={`lg:hidden bg-white border-t border-border transition-all duration-300 overflow-hidden ${open ? "max-h-[600px]" : "max-h-0"}`}>
+      <div className={`lg:hidden bg-[#070B1A]/95 backdrop-blur-md border-t border-white/10 transition-all duration-300 overflow-hidden ${open ? "max-h-[600px]" : "max-h-0"}`}>
         <div className="container-pw flex flex-col py-4 gap-3">
           {navLinks.map((l) => (
-            <Link key={l.to} to={l.to} className="text-navy py-2 font-medium hover:text-gold" activeProps={{ className: "text-gold" }}>
+            <Link key={l.to} to={l.to} className="text-[#F5F7FA] py-2 font-medium hover:text-[#38B6FF]" activeProps={{ className: "text-[#38B6FF]" }}>
               {l.label}
             </Link>
           ))}
-          <Link to="/contact" className="bg-gold text-white text-center font-semibold px-5 py-3 rounded-md mt-2">
+          <Link to="/contact" className="btn-primary text-center mt-2">
             Get a Free Proposal
           </Link>
         </div>

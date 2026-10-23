@@ -1,60 +1,70 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Instagram, MessageCircle, Send, Linkedin } from "lucide-react";
+import { Mail, Instagram, MessageCircle, Send, ArrowUpRight } from "lucide-react";
 import logoAsset from "@/assets/primewave-logo.png.asset.json";
+import { EMAIL, FIVERR_PROFILES, INSTAGRAM_URL, TELEGRAM_URL, WHATSAPP_URL } from "@/lib/site";
 const logo = logoAsset.url;
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white border-t-4 border-gold">
+    <footer className="bg-[#050810] border-t border-white/10">
       <div className="container-pw py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
-          <img src={logo} alt="Prime Wave" className="h-20 w-auto mb-4" />
-          <p className="text-white leading-relaxed font-medium" style={{ fontSize: "14px", opacity: 0.7, maxWidth: "320px" }}>
-            Prime Wave Agency is a premium web design and development agency based in Canada. We help ambitious businesses worldwide build powerful digital presences that attract clients, rank on Google and generate revenue around the clock. Your success is our mission.
+          <img src={logo} alt="Prime Wave" className="h-16 w-auto mb-4" />
+          <p className="text-sm leading-relaxed text-[#8A93A6]" style={{ maxWidth: "320px" }}>
+            Prime Wave Agency is a remote web design and development team helping businesses worldwide build websites that attract clients, rank on Google and grow revenue.
           </p>
         </div>
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">Navigate</h4>
-          <ul className="space-y-2 text-sm text-white/80">
-            <li><Link to="/" className="hover:text-gold">Home</Link></li>
-            <li><Link to="/about" className="hover:text-gold">About</Link></li>
-            <li><Link to="/services" className="hover:text-gold">Services</Link></li>
-            <li><Link to="/portfolio" className="hover:text-gold">Portfolio</Link></li>
-            <li><Link to="/blog" className="hover:text-gold">Blog</Link></li>
-            <li><Link to="/faq" className="hover:text-gold">FAQ</Link></li>
-            <li><Link to="/contact" className="hover:text-gold">Contact</Link></li>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-[#38B6FF] mb-4">Navigate</h4>
+          <ul className="space-y-2 text-sm text-[#8A93A6]">
+            <li><Link to="/" className="hover:text-[#38B6FF]">Home</Link></li>
+            <li><Link to="/about" className="hover:text-[#38B6FF]">About</Link></li>
+            <li><Link to="/services" className="hover:text-[#38B6FF]">Services</Link></li>
+            <li><Link to="/portfolio" className="hover:text-[#38B6FF]">Portfolio</Link></li>
+            <li><Link to="/blog" className="hover:text-[#38B6FF]">Blog</Link></li>
+            <li><Link to="/faq" className="hover:text-[#38B6FF]">FAQ</Link></li>
+            <li><Link to="/contact" className="hover:text-[#38B6FF]">Contact</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">More</h4>
-          <ul className="space-y-2 text-sm text-white/80">
-            <li><Link to="/case-studies" className="hover:text-gold">Case Studies</Link></li>
-            <li><Link to="/pricing" className="hover:text-gold">Pricing</Link></li>
-            <li><Link to="/free-audit" className="hover:text-gold">Free Audit</Link></li>
-            <li><Link to="/services" className="hover:text-gold">Web Design</Link></li>
-            <li><Link to="/services" className="hover:text-gold">Technical SEO</Link></li>
-            <li><Link to="/services" className="hover:text-gold">WhatsApp Automation</Link></li>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-[#38B6FF] mb-4">Services</h4>
+          <ul className="space-y-2 text-sm text-[#8A93A6]">
+            <li><Link to="/services" className="hover:text-[#38B6FF]">Web Design & Redesign</Link></li>
+            <li><Link to="/services" className="hover:text-[#38B6FF]">E-commerce Stores</Link></li>
+            <li><Link to="/services" className="hover:text-[#38B6FF]">SEO & Speed Optimization</Link></li>
+            <li><Link to="/services" className="hover:text-[#38B6FF]">WhatsApp & AI Chatbots</Link></li>
+            <li><Link to="/services" className="hover:text-[#38B6FF]">Landing Pages</Link></li>
+            <li><Link to="/services" className="hover:text-[#38B6FF]">Maintenance & Support</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-gold mb-4">Connect</h4>
-          <ul className="space-y-2 text-sm text-white/80">
-            <li className="flex items-center gap-2"><MessageCircle size={16} className="text-gold" /> +1 226 855 6194</li>
-            <li className="flex items-center gap-2"><Mail size={16} className="text-gold" />info.primewaveagency@gmail.com</li>
-            <li className="flex items-center gap-2"><Instagram size={16} className="text-gold" /> @primewave301</li>
-            <li className="flex items-center gap-2"><Send size={16} className="text-gold" /> @primewave2</li>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-[#38B6FF] mb-4">Fiverr</h4>
+          <ul className="space-y-2 text-sm text-[#8A93A6]">
+            {FIVERR_PROFILES.map((p) => (
+              <li key={p.name}>
+                <a href={p.url} target="_blank" rel="noopener" className="inline-flex items-center gap-1 hover:text-[#38B6FF]">
+                  {p.name} <ArrowUpRight size={14} />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-[#38B6FF] mt-6 mb-4">Connect</h4>
+          <ul className="space-y-2 text-sm text-[#8A93A6]">
+            <li className="flex items-center gap-2"><MessageCircle size={16} className="text-[#38B6FF]" /> WhatsApp</li>
+            <li className="flex items-center gap-2"><Mail size={16} className="text-[#38B6FF]" /> {EMAIL}</li>
+            <li className="flex items-center gap-2"><Instagram size={16} className="text-[#38B6FF]" /> @primewave301</li>
+            <li className="flex items-center gap-2"><Send size={16} className="text-[#38B6FF]" /> @primewave2</li>
           </ul>
           <div className="flex gap-3 mt-4">
-            <a href="https://wa.me/12268556194" target="_blank" rel="noopener" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><MessageCircle size={16} /></a>
-            <a href="https://instagram.com/primewave301" target="_blank" rel="noopener" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><Instagram size={16} /></a>
-            <a href="mailto:info.primewaveagency@gmail.com" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><Mail size={16} /></a>
-            <a href="https://t.me/primewave2" target="_blank" rel="noopener" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><Send size={16} /></a>
-            <a href="https://linkedin.com/company/primewaveagency" target="_blank" rel="noopener" className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold flex items-center justify-center transition"><Linkedin size={16} /></a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener" aria-label="WhatsApp" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#0B5FFF] flex items-center justify-center transition"><MessageCircle size={16} /></a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener" aria-label="Instagram" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#0B5FFF] flex items-center justify-center transition"><Instagram size={16} /></a>
+            <a href={`mailto:${EMAIL}`} aria-label="Email" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#0B5FFF] flex items-center justify-center transition"><Mail size={16} /></a>
+            <a href={TELEGRAM_URL} target="_blank" rel="noopener" aria-label="Telegram" className="w-9 h-9 rounded-full bg-white/5 hover:bg-[#0B5FFF] flex items-center justify-center transition"><Send size={16} /></a>
           </div>
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="container-pw py-5 text-center text-xs text-white/60">
+        <div className="container-pw py-5 text-center text-xs text-[#8A93A6]">
           © 2026 Prime Wave Agency. All rights reserved.
         </div>
       </div>
