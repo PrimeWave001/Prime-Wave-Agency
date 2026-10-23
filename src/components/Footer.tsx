@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Instagram, MessageCircle, Send, Linkedin } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoAsset from "@/assets/primewave-logo.png.asset.json";
+const logo = logoAsset.url;
 
 export function Footer() {
   return (
