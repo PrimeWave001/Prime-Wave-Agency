@@ -1,401 +1,286 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import founder from "@/assets/founder.jpg";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { WaveDivider } from "@/components/WaveDivider";
 import { CTASection } from "@/components/CTASection";
+import { FiverrSection } from "@/components/FiverrSection";
+import { waLink } from "@/lib/site";
 import {
-  Code2, Palette, Search, ShoppingBag, MessageSquare, Wrench,
-  Star, ArrowRight, ExternalLink, Award, Target, Handshake, Sparkles,
-  Clock, Smartphone, TrendingUp, UserCheck, DollarSign, ShieldCheck,
-  CheckCircle2, MapPin, Filter, Bot, Zap, Grid3x3,
+  Palette, ShoppingBag, Gauge, Bot, ArrowRight, ArrowUpRight, Check,
+  PhoneCall, PenTool, Code2, Rocket, TrendingUp, Star,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Prime Wave Agency — Build a Powerful Online Presence" },
-      { name: "description", content: "Premium web design, SEO and ecommerce. We build modern, high performing websites that convert." },
-      { property: "og:title", content: "Prime Wave Agency — Premium Web Design" },
-      { property: "og:description", content: "We design modern, high performing websites that help businesses grow." },
+      { title: "Prime Wave Agency — Websites That Turn Visitors Into Paying Clients" },
+      { name: "description", content: "Remote web design and development agency. We design fast, modern websites that help businesses worldwide get found, build trust and win more customers." },
+      { property: "og:title", content: "Prime Wave Agency — Websites That Turn Visitors Into Paying Clients" },
+      { property: "og:description", content: "Fast, modern websites for businesses worldwide." },
     ],
   }),
   component: HomePage,
 });
 
-const services = [
-  { icon: Code2, title: "Web Design and Development", desc: "Modern, fast, conversion focused websites built on the platform that fits your goals." },
-  { icon: Palette, title: "UI UX Design and Redesign", desc: "Beautiful, intuitive interfaces that turn visitors into loyal customers." },
-  { icon: Search, title: "Technical SEO and Auditing", desc: "Get found on Google with on page SEO, schema markup and Core Web Vitals optimization." },
-  { icon: ShoppingBag, title: "Ecommerce Development", desc: "Shopify and WooCommerce stores designed to maximize average order value." },
-  { icon: MessageSquare, title: "WhatsApp Automation Bot", desc: "24 hour customer service and lead capture with intelligent WhatsApp automation." },
-  { icon: Wrench, title: "Maintenance and Support", desc: "Keep your site fast, secure and updated with monthly care plans from $99." },
-  { icon: Bot, title: "AI Chatbot Integration", desc: "Intelligent AI chatbots that answer questions, qualify leads and book appointments around the clock." },
-  { icon: Target, title: "Landing Page Design", desc: "High converting single page websites built specifically to turn visitors into leads or customers." },
-  { icon: Zap, title: "Website Speed Optimization", desc: "Transform slow websites into lightning fast experiences with 90+ Google PageSpeed scores." },
-  { icon: MapPin, title: "Google Business Profile Setup", desc: "Complete setup and optimization so your business appears in local search and Google Maps." },
-  { icon: Grid3x3, title: "Social Media Design Package", desc: "Branded graphics, profile optimization and content templates for Instagram, Facebook and TikTok." },
+const platforms = ["WordPress", "Shopify", "Wix", "Squarespace", "Framer", "Webflow", "Duda"];
+
+const stats = [
+  { v: 50, s: "+", l: "Projects Delivered" },
+  { v: 15, s: "+", l: "Countries" },
+  { v: 5, s: "+", l: "Years Experience" },
+  { v: 3, s: "", l: "Fiverr Studios" },
 ];
 
-const whyUs = [
-  { icon: Clock, title: "We Deliver on Time, Every Time", desc: "Clear timelines and weekly progress updates so you always know exactly where your project stands." },
-  { icon: Smartphone, title: "Mobile First Design Always", desc: "Every site is engineered for mobile from day one because that is where most of your visitors live." },
-  { icon: TrendingUp, title: "SEO Built In From Day One", desc: "Technical SEO, schema and Core Web Vitals are baked into every build, not bolted on later." },
-  { icon: UserCheck, title: "Direct Access to the Founder", desc: "You work directly with Marcus throughout the project. No account managers, no outsourcing." },
-  { icon: DollarSign, title: "Transparent Pricing No Surprises", desc: "Honest, upfront pricing on every quote. What we agree on is what you pay." },
-  { icon: ShieldCheck, title: "100% Satisfaction Guaranteed", desc: "We refine until you are thrilled. Your reputation is our reputation." },
+const pillars = [
+  { icon: Palette, title: "Web Design & Redesign", desc: "Modern, conversion focused websites that earn trust in seconds." },
+  { icon: ShoppingBag, title: "E-commerce Stores", desc: "Shopify and WooCommerce stores built to sell from day one." },
+  { icon: Gauge, title: "SEO & Speed Optimization", desc: "Get found on Google with fast pages and solid technical SEO." },
+  { icon: Bot, title: "Automation", desc: "WhatsApp and AI chatbots that answer, qualify and book around the clock." },
 ];
 
-const portfolio = [
-  { url: "pristinelivingsevices.com", platform: "WordPress", type: "Full Design", desc: "Clean service brand site built to convert local enquiries." },
-  { url: "tenthousandscarves.com", platform: "Shopify", type: "Ecommerce", desc: "Premium ecommerce experience with refined product storytelling." },
-
-  { url: "ravenoak.net", platform: "WordPress", type: "Full Design", desc: "Editorial site with cinematic typography and storytelling." },
-  { url: "gscottgraham.com", platform: "WordPress", type: "Full Design", desc: "Author portfolio with elegant minimal layout." },
-  { url: "axisrealty.net", platform: "WordPress", type: "Full Design", desc: "Real estate brand with custom property modules." },
-  { url: "stamperrealtyservices.com", platform: "WordPress", type: "Full Design", desc: "Premium real estate site engineered for leads." },
-  { url: "sageandsanto.com", platform: "Shopify", type: "Ecommerce", desc: "High converting Shopify store with custom product pages." },
+export const featured = [
+  { url: "familyplushomecare.com", industry: "Home Care Services", platform: "WordPress", desc: "Professional website built to earn trust from families and generate care inquiries." },
+  { url: "pristinelivingsevices.com", industry: "Cleaning Services", platform: "WordPress", desc: "Clean service brand site designed to convert local visitors into bookings." },
+  { url: "soboldents.com", industry: "Business", platform: "WordPress", desc: "Modern, conversion-focused business website." },
+  { url: "heathermoyer.co", industry: "Wellness & Retreats", platform: "WordPress", desc: "Elegant rebuild with a dynamic retreats page connected to online booking." },
 ];
 
-const portfolioFilters = ["All", "WordPress", "Shopify", "Wix", "Custom", "Squarespace"] as const;
+const steps = [
+  { icon: PhoneCall, title: "Discovery Call", desc: "We learn your goals, audience and what success looks like." },
+  { icon: PenTool, title: "Design", desc: "A custom design built around your brand and your customers." },
+  { icon: Code2, title: "Build & Revisions", desc: "We develop, refine and polish until you love it." },
+  { icon: Rocket, title: "Launch & Support", desc: "We go live and stay with you for updates and growth." },
+];
 
-const reviews = [
-  { name: "Lisa F. Hanson", text: "Prime Wave Agency did an incredible job on my website. Professional, easy to work with and delivered more than I expected." },
-  { name: "Katherine V. Harris", text: "Working with Prime Wave was one of the best decisions I made for my business. They understood exactly what I needed." },
-  { name: "Carmen P. Lovell", text: "I hired Prime Wave for SEO and the results have been incredible. Far better than I ever expected." },
-  { name: "Tracy C. Fidler", text: "Prime Wave delivered exceptional results. The performance far exceeded my expectations." },
+const packages = [
+  { name: "Landing Page", price: "$149", features: ["Single high converting page", "Mobile first design", "Contact form or WhatsApp", "Basic SEO setup", "10 days support"] },
+  { name: "Business Website", price: "$299", popular: true, features: ["Up to 6 custom pages", "Conversion focused copy layout", "On page SEO & speed", "Google Analytics setup", "15 days support"] },
+  { name: "E-commerce Store", price: "$999", features: ["Shopify or WooCommerce", "Product & payment setup", "Custom product pages", "Speed & SEO optimized", "30 days support"] },
 ];
 
 function HomePage() {
-  const [reviewIdx, setReviewIdx] = useState(0);
-  const [pfFilter, setPfFilter] = useState<(typeof portfolioFilters)[number]>("All");
-  const [parallaxY, setParallaxY] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setReviewIdx((i) => (i + 1) % reviews.length), 5000);
-    return () => clearInterval(t);
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => setParallaxY(window.scrollY * 0.35);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const visiblePortfolio = pfFilter === "All" ? portfolio : portfolio.filter((p) => p.platform === pfFilter);
-
   return (
     <>
       {/* HERO */}
-      <section className="relative text-white overflow-hidden flex items-center" style={{ paddingTop: "120px", paddingBottom: "90px", minHeight: "92vh" }}>
-        <div
-          className="absolute inset-0 w-full h-[120%] bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=2000&q=80)",
-            transform: `translateY(${parallaxY}px)`,
-            willChange: "transform",
-          }}
-        />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(13,20,36,0.92) 0%, rgba(13,20,36,0.85) 50%, rgba(13,20,36,0.95) 100%)" }} />
-        <div className="absolute inset-0 bg-grid opacity-15" />
-
-        <div className="container-pw relative">
+      <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="glow-blue w-[600px] h-[600px] -top-40 -left-40" />
+        <div className="glow-blue w-[500px] h-[500px] top-20 right-0" />
+        <div className="container-pw relative grid lg:grid-cols-2 gap-14 items-center">
           <ScrollReveal>
-            <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-              <div className="w-20 h-[2px] bg-gold mb-5" />
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                Premium Web Agency
-              </span>
-              <h1 className="mt-5 leading-[1.02] font-extrabold" style={{ fontSize: "clamp(2.5rem, 6.5vw, 4.75rem)" }}>
-                Build a Powerful <span className="text-gradient-gold">Online Presence</span> That Converts
-              </h1>
-              <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl mx-auto">
-                We design modern, high performing websites that help businesses grow, attract clients and stand out.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
-                <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition text-center">Get a Free Proposal</Link>
-                <Link to="/portfolio" className="border-2 border-white/50 text-white font-semibold px-8 py-4 rounded-md hover:bg-white hover:text-navy transition text-center backdrop-blur-sm">View Our Work</Link>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0B5FFF]/10 border border-[#0B5FFF]/30 text-[#38B6FF] text-xs font-semibold uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#38B6FF] animate-pulse" />
+              Web Design & Development Agency
+            </span>
+            <h1 className="mt-6 leading-[1.05]" style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.25rem)" }}>
+              Websites That Turn Visitors Into <span className="text-gradient-blue">Paying Clients</span>
+            </h1>
+            <p className="mt-6 text-lg text-[#8A93A6] max-w-xl">
+              We design fast, modern websites that help businesses worldwide get found, build trust and win more customers.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <Link to="/contact" className="btn-primary">Get a Free Proposal <ArrowRight size={18} /></Link>
+              <a href={waLink("Hi Prime Wave! I would like to talk about a website.")} target="_blank" rel="noopener" className="btn-secondary">WhatsApp Us</a>
+            </div>
+            <p className="mt-8 text-sm text-[#8A93A6]">
+              <span className="text-[#38B6FF]">★</span> Verified reviews on Fiverr · 50+ projects delivered · 15+ countries
+            </p>
+          </ScrollReveal>
+
+          {/* Abstract UI composition */}
+          <ScrollReveal delay={150}>
+            <div className="relative h-[420px] md:h-[480px]">
+              <div className="absolute inset-x-6 top-6 bottom-16 card-dark shadow-2xl overflow-hidden animate-float" style={{ boxShadow: "0 40px 100px -30px rgba(11,95,255,0.5)" }}>
+                <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/10">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/20" /><span className="w-2.5 h-2.5 rounded-full bg-white/20" /><span className="w-2.5 h-2.5 rounded-full bg-white/20" />
+                  <span className="ml-3 h-5 flex-1 rounded-md bg-white/5" />
+                </div>
+                <div className="p-6 space-y-4">
+                  <div className="h-24 rounded-xl bg-gradient-to-br from-[#0B5FFF] to-[#38B6FF] opacity-80" />
+                  <div className="h-3 w-2/3 rounded bg-white/15" />
+                  <div className="h-3 w-1/2 rounded bg-white/10" />
+                  <div className="grid grid-cols-3 gap-3 pt-2">
+                    <div className="h-16 rounded-lg bg-white/5" /><div className="h-16 rounded-lg bg-white/5" /><div className="h-16 rounded-lg bg-white/5" />
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-3 mt-8 justify-center">
-                {[
-                  { i: Star, t: "Google Verified" },
-                  { i: CheckCircle2, t: "50+ Projects" },
-                  { i: MapPin, t: "Canada Based" },
-                  { i: TrendingUp, t: "Worldwide Service" },
-                ].map((b) => (
-                  <div key={b.t} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold backdrop-blur-sm">
-                    <b.i size={14} className="text-gold" />
-                    {b.t}
+              <div className="absolute -right-2 md:-right-6 top-0 card-dark p-4 w-48 float-shape-2" style={{ animationDuration: "10s" }}>
+                <div className="flex items-center gap-2 text-xs text-[#8A93A6]"><TrendingUp size={14} className="text-[#38B6FF]" /> Inquiries</div>
+                <p className="text-2xl font-extrabold mt-1" style={{ fontFamily: "var(--font-display)" }}>+184%</p>
+                <div className="flex items-end gap-1 h-10 mt-2">
+                  {[30, 45, 40, 60, 70, 90].map((h, i) => (
+                    <span key={i} className="flex-1 rounded-sm bg-gradient-to-t from-[#0B5FFF] to-[#38B6FF]" style={{ height: `${h}%` }} />
+                  ))}
+                </div>
+              </div>
+              <div className="absolute left-0 bottom-0 card-dark p-4 w-56 notif-pop">
+                {["Mobile first", "SEO ready", "Fast loading"].map((t) => (
+                  <div key={t} className="flex items-center gap-2 text-sm py-1">
+                    <span className="w-5 h-5 rounded-full bg-[#0B5FFF] flex items-center justify-center"><Check size={12} /></span>{t}
                   </div>
                 ))}
+              </div>
+              <div className="absolute right-4 bottom-6 card-dark px-4 py-3 flex items-center gap-2 text-sm">
+                <Star size={16} className="text-[#38B6FF] fill-[#38B6FF]" /> Verified on Fiverr
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <WaveDivider from="#0d1424" to="#D37B29" />
+      {/* PLATFORM STRIP */}
+      <section className="border-y border-white/10 py-8">
+        <div className="container-pw flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          <span className="text-xs uppercase tracking-[0.2em] text-[#8A93A6]">We build on</span>
+          {platforms.map((p) => (
+            <span key={p} className="text-lg font-bold text-white/40 hover:text-white/80 transition" style={{ fontFamily: "var(--font-display)" }}>{p}</span>
+          ))}
+        </div>
+      </section>
 
       {/* STATS */}
-      <section className="bg-gold text-white py-14">
-        <div className="container-pw grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          {[
-            { v: 50, s: "+", l: "Projects Completed" },
-            { v: 80, s: "+", l: "Happy Clients" },
-            { v: 5, s: "+", l: "Years Experience" },
-            { v: 98, s: "%", l: "Client Satisfaction" },
-          ].map((x) => (
-            <div key={x.l} className="flip-in">
-              <div className="text-4xl md:text-5xl font-bold font-display"><AnimatedCounter value={x.v} suffix={x.s} /></div>
-              <p className="mt-2 text-white/90 text-sm font-medium uppercase tracking-wider">{x.l}</p>
+      <section className="py-16">
+        <div className="container-pw grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {stats.map((x) => (
+            <div key={x.l} className="card-dark p-6 text-center">
+              <div className="text-4xl md:text-5xl font-extrabold text-gradient-blue" style={{ fontFamily: "var(--font-display)" }}>
+                <AnimatedCounter value={x.v} suffix={x.s} />
+              </div>
+              <p className="mt-2 text-sm text-[#8A93A6]">{x.l}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ABOUT SUMMARY */}
-      <section className="bg-white py-24">
-        <div className="container-pw grid lg:grid-cols-2 gap-12 items-center">
-          <ScrollReveal>
-            <span className="label-accent">About Us</span>
-            <h2 className="text-3xl md:text-4xl mt-3 text-navy">A Team Focused on Growth and Results</h2>
-            <p className="mt-4 text-muted-foreground">Prime Wave Agency was founded with one mission: build websites that don't just look good, they perform. We combine premium design, technical excellence, and a deep understanding of what makes businesses convert.</p>
-            <p className="mt-3 text-muted-foreground">From local businesses to international brands, we help our clients win online with strategy driven design and engineering.</p>
-            <div className="grid sm:grid-cols-2 gap-4 mt-6">
-              {[
-                { i: Award, t: "Excellence First" },
-                { i: Sparkles, t: "Transparent Process" },
-                { i: Target, t: "Results Over Vanity" },
-                { i: Handshake, t: "Long term Partner" },
-              ].map((v) => (
-                <div key={v.t} className="flex items-center gap-3 p-4 rounded-lg bg-surface border border-border">
-                  <v.i className="text-gold" size={22} />
-                  <span className="font-semibold text-navy text-sm">{v.t}</span>
-                </div>
-              ))}
-            </div>
-            <Link to="/about" className="inline-flex items-center gap-2 mt-6 text-gold font-semibold hover:gap-3 transition-all">Learn More About Us <ArrowRight size={18} /></Link>
-          </ScrollReveal>
-          <ScrollReveal delay={150}>
-            <div className="relative">
-              <div className="absolute -top-6 -right-6 w-32 h-32 border-4 border-gold rounded-2xl" />
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 border-4 border-navy rounded-2xl" />
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-navy">
-                <img src={founder} alt="Marcus Derrick" className="w-full" />
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* SERVICES — REDESIGNED */}
-      <section className="bg-navy text-white py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-10" />
-        <div className="container-pw relative">
-          <ScrollReveal>
-            <div className="text-center mb-14">
-              <div className="w-16 h-[2px] bg-gold mx-auto mb-4" />
-              <span className="label-accent">What We Do</span>
-              <h2 className="text-3xl md:text-5xl mt-3 font-extrabold">Premium Services for Ambitious Businesses</h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 gap-x-12">
-            {services.map((s, i) => (
-              <ScrollReveal key={s.title} delay={i * 60}>
-                <div className="service-row group flex items-start gap-6 py-7 border-b border-white/10 transition-all">
-                  <div className="font-display font-extrabold text-gold leading-none shrink-0" style={{ fontSize: "3rem", width: "85px" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <s.icon className="text-gold shrink-0" size={22} />
-                      <h3 className="text-lg md:text-xl font-bold text-white">{s.title}</h3>
-                    </div>
-                    <p className="text-sm text-white/65 leading-relaxed">{s.desc}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link to="/services" className="inline-flex items-center gap-2 bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition">
-              Explore All Services <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
-      <section className="bg-white py-24">
-        <div className="container-pw grid lg:grid-cols-2 gap-14 items-start">
-          <ScrollReveal>
-            <span className="label-accent">Why Choose Prime Wave</span>
-            <h2 className="text-4xl md:text-6xl mt-3 text-navy leading-[1.05]">
-              Why clients choose <span className="text-gold">Prime Wave</span>
-            </h2>
-            <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-              We are not the cheapest agency on the internet, and we are proud of it. Our clients hire us because they want results that
-              outlast trends, websites built on excellence, transparency and a real partnership focused on their growth.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link to="/contact" className="bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-lg inline-flex items-center gap-2">
-                Get Started <ArrowRight size={18} />
-              </Link>
-              <Link to="/case-studies" className="border-2 border-navy/20 text-navy font-semibold px-8 py-4 rounded-md hover:bg-navy hover:text-white transition">
-                See Case Studies
-              </Link>
-            </div>
-            <div className="mt-10 grid grid-cols-2 gap-6">
-              <div>
-                <p className="text-3xl font-display font-bold text-gold">98%</p>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Client Satisfaction</p>
-              </div>
-              <div>
-                <p className="text-3xl font-display font-bold text-gold">24h</p>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Response Time</p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={150}>
-            <div className="space-y-6">
-              {whyUs.map((w, i) => (
-                <div key={w.title} className="group flex gap-5 items-start p-5 rounded-2xl border-l-4 border-transparent hover:border-gold hover:bg-surface transition-all slide-in-left" style={{ animationDelay: `${i * 80}ms` }}>
-                  <div className="num-3d shrink-0 w-16 text-right">{String(i + 1).padStart(2, "0")}</div>
-                  <div>
-                    <h3 className="text-lg text-navy font-display font-bold">{w.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{w.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* PORTFOLIO */}
-      <section className="bg-navy text-white py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-15" />
-        <div className="container-pw relative">
+      {/* SERVICES */}
+      <section className="bg-[#0F1630] py-24">
+        <div className="container-pw">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <span className="label-accent">Selected Work</span>
-              <h2 className="text-3xl md:text-5xl mt-3">50+ Projects. Zero Excuses.</h2>
-              <p className="mt-4 text-white/70 max-w-xl mx-auto">Real client websites, redesigns and ecommerce stores delivered worldwide.</p>
+              <span className="label-accent">What We Do</span>
+              <h2 className="text-3xl md:text-5xl mt-3">Everything You Need to Win Online</h2>
             </div>
           </ScrollReveal>
-
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            <Filter size={18} className="text-gold mr-1 mt-2" />
-            {portfolioFilters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setPfFilter(f)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition ${pfFilter === f ? "bg-gold text-white" : "bg-white/10 text-white hover:bg-white/20"}`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {visiblePortfolio.map((p, i) => (
-              <ScrollReveal key={p.url} delay={i * 60}>
-                <div className="tilt-3d bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden group">
-                  <div className="h-40 bg-gradient-to-br from-[#1f2a44] to-[#3a4a78] relative flex items-center justify-center">
-                    <div className="absolute inset-0 bg-grid opacity-30" />
-                    <span className="relative font-display font-bold text-lg text-center px-4">{p.url}</span>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded bg-gold text-white">{p.platform}</span>
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded bg-white/10 text-gold uppercase tracking-wide">{p.type}</span>
-                    </div>
-                    <p className="text-sm text-white/70">{p.desc}</p>
-                    <a href={`https://${p.url}`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-gold hover:gap-3 transition-all">
-                      View Site <ExternalLink size={14} />
-                    </a>
-                  </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {pillars.map((s, i) => (
+              <ScrollReveal key={s.title} delay={i * 80}>
+                <div className="h-full p-7 rounded-[20px] bg-[#070B1A] border border-white/10 lift-3d flex flex-col">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0B5FFF] to-[#38B6FF] flex items-center justify-center"><s.icon size={22} /></div>
+                  <h3 className="text-lg mt-5">{s.title}</h3>
+                  <p className="text-sm text-[#8A93A6] mt-2 flex-1">{s.desc}</p>
+                  <Link to="/services" className="inline-flex items-center gap-1 mt-5 text-sm font-semibold text-[#38B6FF] hover:gap-2 transition-all">Learn more <ArrowRight size={14} /></Link>
                 </div>
               </ScrollReveal>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Link to="/portfolio" className="inline-flex items-center gap-2 bg-gold text-white font-semibold px-8 py-4 rounded-md hover:opacity-90 transition shadow-lg">
-              View All Projects <ArrowRight size={18} />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* REVIEWS */}
-      <section
-        className="relative text-white py-24"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(31,42,68,0.92), rgba(31,42,68,0.95)), url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=60)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="container-pw text-center">
+      {/* FEATURED WORK */}
+      <section className="py-24">
+        <div className="container-pw">
           <ScrollReveal>
-            <span className="label-accent">Testimonials</span>
-            <h2 className="text-3xl md:text-4xl mt-3">What Clients Say</h2>
-            <div className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-white/10 border border-white/20">
-              <div className="flex">{[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-gold text-gold" />)}</div>
-              <span className="text-sm font-semibold">5.0 on Google</span>
+            <div className="text-center mb-12">
+              <span className="label-accent">Featured Work</span>
+              <h2 className="text-3xl md:text-5xl mt-3">Real Sites. Real Results.</h2>
             </div>
           </ScrollReveal>
-          <div className="mt-12 max-w-2xl mx-auto relative h-56">
-            {reviews.map((r, i) => (
-              <div key={r.name} className={`absolute inset-0 transition-opacity duration-700 ${i === reviewIdx ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-                <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-8">
-                  <div className="flex justify-center mb-4">{[...Array(5)].map((_, k) => <Star key={k} size={18} className="fill-gold text-gold" />)}</div>
-                  <p className="italic text-white/95">"{r.text}"</p>
-                  <p className="mt-4 font-semibold text-gold">{r.name}</p>
-                </div>
-              </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {featured.map((p, i) => (
+              <ScrollReveal key={p.url} delay={i * 80}>
+                <ProjectCard {...p} />
+              </ScrollReveal>
             ))}
           </div>
-          <div className="flex justify-center gap-2 mt-4">
-            {reviews.map((_, i) => (
-              <button key={i} onClick={() => setReviewIdx(i)} aria-label={`Show review ${i + 1}`} className={`w-2 h-2 rounded-full transition-all ${i === reviewIdx ? "bg-gold w-8" : "bg-white/30"}`} />
-            ))}
+          <div className="text-center mt-12">
+            <Link to="/portfolio" className="btn-secondary">View All Projects <ArrowRight size={18} /></Link>
           </div>
-          <a href="https://share.google/RT2c6cmvAsyFCc1Or" target="_blank" rel="noopener" className="inline-block mt-10 bg-gold text-white font-semibold px-7 py-3 rounded-md hover:opacity-90 transition">Leave a Google Review</a>
         </div>
       </section>
+
+      {/* PROCESS */}
+      <section className="bg-[#0F1630] py-24">
+        <div className="container-pw">
+          <ScrollReveal>
+            <div className="text-center mb-14">
+              <span className="label-accent">How It Works</span>
+              <h2 className="text-3xl md:text-5xl mt-3">A Simple, Proven Process</h2>
+            </div>
+          </ScrollReveal>
+          <div className="relative grid md:grid-cols-4 gap-8">
+            <div className="hidden md:block absolute top-7 left-[12%] right-[12%] h-px bg-gradient-to-r from-[#0B5FFF] to-[#38B6FF] opacity-50" />
+            {steps.map((s, i) => (
+              <ScrollReveal key={s.title} delay={i * 100}>
+                <div className="relative text-center">
+                  <div className="w-14 h-14 mx-auto rounded-full bg-[#070B1A] border border-[#0B5FFF] flex items-center justify-center text-[#38B6FF] relative z-10"><s.icon size={22} /></div>
+                  <p className="mt-4 text-xs font-semibold text-[#38B6FF]">STEP {i + 1}</p>
+                  <h3 className="text-lg mt-1">{s.title}</h3>
+                  <p className="text-sm text-[#8A93A6] mt-2">{s.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PACKAGES */}
+      <section className="py-24">
+        <div className="container-pw">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <span className="label-accent">Packages</span>
+              <h2 className="text-3xl md:text-5xl mt-3">Clear Pricing. No Surprises.</h2>
+            </div>
+          </ScrollReveal>
+          <div className="grid md:grid-cols-3 gap-6 items-stretch">
+            {packages.map((p, i) => (
+              <ScrollReveal key={p.name} delay={i * 100}>
+                <div
+                  className={`relative h-full p-8 rounded-[20px] bg-[#0F1630] flex flex-col border ${p.popular ? "border-[#0B5FFF]" : "border-white/10"}`}
+                  style={p.popular ? { boxShadow: "0 0 60px -10px rgba(11,95,255,0.55)" } : undefined}
+                >
+                  {p.popular && <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#0B5FFF] text-xs font-semibold">Most Popular</span>}
+                  <h3 className="text-xl">{p.name}</h3>
+                  <p className="mt-4 text-sm text-[#8A93A6]">from</p>
+                  <p className="text-5xl font-extrabold" style={{ fontFamily: "var(--font-display)" }}>{p.price}</p>
+                  <ul className="mt-6 space-y-3 flex-1">
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-sm text-[#F5F7FA]/85"><Check size={16} className="text-[#38B6FF] mt-0.5 shrink-0" />{f}</li>
+                    ))}
+                  </ul>
+                  <a href={waLink(`Hi Prime Wave! I would like a quote for the ${p.name} package.`)} target="_blank" rel="noopener" className={`${p.popular ? "btn-primary" : "btn-secondary"} mt-8`}>Get a Quote</a>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="bg-[#0F1630]"><FiverrSection /></div>
 
       <CTASection />
-
-      <section className="bg-surface py-20">
-        <div className="container-pw">
-          <div className="text-center mb-8">
-            <span className="label-accent">Where We Are</span>
-            <h2 className="text-3xl md:text-4xl mt-3 text-navy">Find Us on the Map</h2>
-            <p className="mt-3 text-muted-foreground">Based in Canada. Serving clients worldwide.</p>
-          </div>
-          <div className="rounded-3xl overflow-hidden shadow-2xl border border-border">
-            <iframe
-              title="Prime Wave Agency on Google Maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.7952466750515!2d-79.38318492346663!3d43.64255507110458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d68bf33a9b%3A0x15edd8c4de1bc7e9!2sToronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sca!4v1699564732456!5m2!1sen!2sca"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      </section>
     </>
+  );
+}
+
+export function ProjectCard({ url, industry, platform, desc }: { url: string; industry: string; platform: string; desc: string }) {
+  return (
+    <div className="card-dark overflow-hidden h-full flex flex-col lift-3d">
+      <div className="relative h-52 bg-gradient-to-br from-[#0B2A6B] via-[#0F1630] to-[#0B5FFF]/60 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute right-6 bottom-0 w-40 h-24 rounded-t-lg border border-white/20 bg-[#070B1A]/60">
+          <div className="flex gap-1 p-2"><span className="w-1.5 h-1.5 rounded-full bg-white/30" /><span className="w-1.5 h-1.5 rounded-full bg-white/30" /><span className="w-1.5 h-1.5 rounded-full bg-white/30" /></div>
+          <div className="mx-2 h-8 rounded bg-gradient-to-r from-[#0B5FFF] to-[#38B6FF] opacity-60" />
+        </div>
+        <span className="relative text-2xl md:text-3xl font-extrabold px-6 text-center break-all" style={{ fontFamily: "var(--font-display)" }}>{url}</span>
+      </div>
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex flex-wrap items-center gap-2 mb-3">
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-[#0B5FFF]/15 text-[#38B6FF]">{platform}</span>
+          <span className="text-xs text-[#8A93A6]">{industry}</span>
+        </div>
+        <p className="text-sm text-[#8A93A6] flex-1">{desc}</p>
+        <a href={`https://${url}`} target="_blank" rel="noopener" className="btn-secondary !py-2.5 mt-5 self-start text-sm">Visit Live Site <ArrowUpRight size={14} /></a>
+      </div>
+    </div>
   );
 }

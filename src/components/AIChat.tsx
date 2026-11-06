@@ -27,7 +27,7 @@ export function AIChat() {
         ...next,
         {
           role: "assistant",
-          content: "Thanks for reaching out. For the fastest help with pricing, services, or timelines, message us on WhatsApp +1 226 855 6194 or email info.primewaveagency@gmail.com.",
+          content: "Thanks for reaching out. For the fastest help with pricing, services, or timelines, message us on WhatsApp +63 975 827 8768 or email info.primewaveagency@gmail.com.",
         },
       ]);
       setLoading(false);

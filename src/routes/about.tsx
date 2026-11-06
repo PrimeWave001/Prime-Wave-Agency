@@ -98,7 +98,7 @@ function About() {
             <p className="text-gold font-semibold mt-1">Founder · UI/UX Designer & Web Developer</p>
             <p className="mt-5 text-white/75">With 5+ years building digital products for businesses across Canada, the US, Australia, Singapore and beyond, Marcus founded Prime Wave to deliver the kind of premium, results focused work clients can't find elsewhere, without the bloated agency price tag.</p>
             <div className="flex gap-3 mt-6">
-              <a href="https://wa.me/12268556194" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-gold transition"><MessageCircle size={18} /></a>
+              <a href="https://wa.me/639758278768" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-gold transition"><MessageCircle size={18} /></a>
               <a href="https://instagram.com/primewave301" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-gold transition"><Instagram size={18} /></a>
               <a href="https://linkedin.com/in/marcus-derrick" target="_blank" rel="noopener" className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-gold transition"><Linkedin size={18} /></a>
               <a href="mailto:info.primewaveagency@gmail.com" className="w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-gold transition"><Mail size={18} /></a>

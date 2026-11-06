@@ -64,7 +64,7 @@ function FAQ() {
               <div className="mt-8 bg-navy text-white rounded-2xl p-6 shadow-xl">
                 <p className="font-display font-bold text-lg mb-4">Talk to a human</p>
                 <div className="flex flex-col gap-3">
-                  <a href="https://wa.me/12268556194" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 bg-gold text-white font-semibold px-5 py-3 rounded-md hover:opacity-90 transition">
+                  <a href="https://wa.me/639758278768" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 bg-gold text-white font-semibold px-5 py-3 rounded-md hover:opacity-90 transition">
                     <MessageCircle size={18} /> WhatsApp Us
                   </a>
                   <a href="mailto:info.primewaveagency@gmail.com" className="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white font-semibold px-5 py-3 rounded-md hover:bg-white hover:text-navy transition">
@@ -135,7 +135,7 @@ function FAQ() {
           <h2 className="text-3xl md:text-4xl text-navy font-extrabold">Still have questions?</h2>
           <p className="mt-3 text-muted-foreground">We are here to help. Reach out and a real human will reply within 24 hours.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
-            <a href="https://wa.me/12268556194" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 bg-gold text-white font-semibold px-7 py-3.5 rounded-md hover:opacity-90 transition">
+            <a href="https://wa.me/639758278768" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 bg-gold text-white font-semibold px-7 py-3.5 rounded-md hover:opacity-90 transition">
               <MessageCircle size={18} /> WhatsApp
             </a>
             <a href="mailto:info.primewaveagency@gmail.com" className="inline-flex items-center justify-center gap-2 border-2 border-navy text-navy font-semibold px-7 py-3.5 rounded-md hover:bg-navy hover:text-white transition">

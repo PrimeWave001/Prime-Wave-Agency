@@ -31,7 +31,7 @@ const services = [
 ];
 
 function waLink(service: string) {
-  return "https://wa.me/12268556194?text=" + encodeURIComponent(`Hi Prime Wave! I would like a quote for ${service}.`);
+  return "https://wa.me/639758278768?text=" + encodeURIComponent(`Hi Prime Wave! I would like a quote for ${service}.`);
 }
 
 function Services() {

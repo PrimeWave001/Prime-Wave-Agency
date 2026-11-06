@@ -108,7 +108,7 @@ function PostPage() {
               <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-gold text-white font-semibold px-7 py-3 rounded-md hover:opacity-90 transition">
                 <Mail size={18} /> Get In Touch
               </Link>
-              <a href="https://wa.me/12268556194" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-3 rounded-md transition">
+              <a href="https://wa.me/639758278768" target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-3 rounded-md transition">
                 <MessageCircle size={18} /> Chat on WhatsApp
               </a>
             </div>

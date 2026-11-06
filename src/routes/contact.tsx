@@ -47,9 +47,9 @@ function Contact() {
             <h2 className="text-3xl text-navy">Get in touch</h2>
             <p className="mt-3 text-muted-foreground">Reach out via WhatsApp for the fastest response, or send us a detailed brief.</p>
             <div className="mt-8 space-y-5">
-              <a href="https://wa.me/12268556194" target="_blank" rel="noopener" className="flex items-center gap-4 p-5 rounded-xl border border-border hover:border-gold transition">
+              <a href="https://wa.me/639758278768" target="_blank" rel="noopener" className="flex items-center gap-4 p-5 rounded-xl border border-border hover:border-gold transition">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center"><MessageCircle className="text-gold" /></div>
-                <div><p className="text-sm text-muted-foreground">WhatsApp</p><p className="font-semibold text-navy">+1 226 855 6194</p></div>
+                <div><p className="text-sm text-muted-foreground">WhatsApp</p><p className="font-semibold text-navy">+63 975 827 8768</p></div>
               </a>
               <a href="mailto:info.primewaveagency@gmail.com" className="flex items-center gap-4 p-5 rounded-xl border border-border hover:border-gold transition">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center"><Mail className="text-gold" /></div>

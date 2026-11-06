@@ -45,7 +45,7 @@ const faqs = [
 ];
 
 function waLink(plan: string) {
-  return "https://wa.me/12268556194?text=" + encodeURIComponent(`Hi Prime Wave! I would like to get started with the ${plan}.`);
+  return "https://wa.me/639758278768?text=" + encodeURIComponent(`Hi Prime Wave! I would like to get started with the ${plan}.`);
 }
 
 function Pricing() {
