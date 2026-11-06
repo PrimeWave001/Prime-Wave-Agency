@@ -13,5 +13,5 @@ Source: user doc "Completely redesign the entire Prime Wave Agency website".
 - [ ] Portfolio: hero "50+ Projects. Zero Excuses.", stats, filter pills, 4 featured + More Projects grid
 - [ ] FAQ: restyle, remove Canada mentions, add Fiverr question, new WhatsApp link
 - [ ] Blog: dark cards, blue tags, unique cover images, keep newsletter
-- [ ] Contact: rebuild per spec (contact cards, form fields, Fiverr section, remove map)
+- [ ] Contact (map already swapped for Fiverr section): rebuild per spec (contact cards, form fields, Fiverr section, remove map)
 - [ ] Verify: sitemap/head metadata, mobile check, no orange/Canada remnants (rg sweep)
