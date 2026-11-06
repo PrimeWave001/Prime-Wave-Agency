@@ -57,7 +57,7 @@ function Contact() {
               </a>
               <div className="flex items-center gap-4 p-5 rounded-xl border border-border">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center"><MapPin className="text-gold" /></div>
-                <div><p className="text-sm text-muted-foreground">Location</p><p className="font-semibold text-navy">Canada · Serving Worldwide</p></div>
+                <div><p className="text-sm text-muted-foreground">Location</p><p className="font-semibold text-navy">Remote · Serving Worldwide</p></div>
               </div>
               <div className="flex items-center gap-4 p-5 rounded-xl border border-border">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center"><Clock className="text-gold" /></div>

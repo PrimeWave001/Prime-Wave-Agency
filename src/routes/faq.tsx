@@ -28,7 +28,7 @@ const items: { q: string; a: string; cat: Cat }[] = [
   { q: "Do you include SEO?", a: "Yes. All websites include on page SEO, meta tags and schema markup.", cat: "Technical" },
   { q: "How do I get started?", a: "Message us on WhatsApp or email us. We reply within 24 hours.", cat: "Process" },
   { q: "Can you redesign my existing website?", a: "Yes. Redesign is one of our most popular services.", cat: "General" },
-  { q: "Do you work with international clients?", a: "Yes. We have worked with clients in Canada, USA, Australia, Singapore, Chile and more.", cat: "General" },
+  { q: "Do you work with international clients?", a: "Yes. We have worked with clients in 15+ countries including the USA, UK, Germany, Australia, Singapore, Chile and more.", cat: "General" },
   { q: "What makes Prime Wave different?", a: "Direct access to the founder, zero outsourcing, 100 percent satisfaction guarantee.", cat: "General" },
 ];
 
