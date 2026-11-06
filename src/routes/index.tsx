@@ -103,7 +103,7 @@ function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="absolute -right-2 md:-right-6 top-0 card-dark p-4 w-48 float-shape-2" style={{ animationDuration: "10s" }}>
+              <div className="absolute -right-2 md:-right-6 top-0 card-dark p-4 w-48 animate-float" style={{ animationDelay: "1.5s" }}>
                 <div className="flex items-center gap-2 text-xs text-[#8A93A6]"><TrendingUp size={14} className="text-[#38B6FF]" /> Inquiries</div>
                 <p className="text-2xl font-extrabold mt-1" style={{ fontFamily: "var(--font-display)" }}>+184%</p>
                 <div className="flex items-end gap-1 h-10 mt-2">
