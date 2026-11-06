@@ -1,3 +1,4 @@
+import { FiverrSection } from "@/components/FiverrSection";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -47,9 +48,9 @@ function Contact() {
             <h2 className="text-3xl text-navy">Get in touch</h2>
             <p className="mt-3 text-muted-foreground">Reach out via WhatsApp for the fastest response, or send us a detailed brief.</p>
             <div className="mt-8 space-y-5">
-              <a href="https://wa.me/12268556194" target="_blank" rel="noopener" className="flex items-center gap-4 p-5 rounded-xl border border-border hover:border-gold transition">
+              <a href="https://wa.me/639758278768" target="_blank" rel="noopener" className="flex items-center gap-4 p-5 rounded-xl border border-border hover:border-gold transition">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center"><MessageCircle className="text-gold" /></div>
-                <div><p className="text-sm text-muted-foreground">WhatsApp</p><p className="font-semibold text-navy">+1 226 855 6194</p></div>
+                <div><p className="text-sm text-muted-foreground">WhatsApp</p><p className="font-semibold text-navy">+63 975 827 8768</p></div>
               </a>
               <a href="mailto:info.primewaveagency@gmail.com" className="flex items-center gap-4 p-5 rounded-xl border border-border hover:border-gold transition">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center"><Mail className="text-gold" /></div>
@@ -57,7 +58,7 @@ function Contact() {
               </a>
               <div className="flex items-center gap-4 p-5 rounded-xl border border-border">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center"><MapPin className="text-gold" /></div>
-                <div><p className="text-sm text-muted-foreground">Location</p><p className="font-semibold text-navy">Canada · Serving Worldwide</p></div>
+                <div><p className="text-sm text-muted-foreground">Location</p><p className="font-semibold text-navy">Remote · Serving Worldwide</p></div>
               </div>
               <div className="flex items-center gap-4 p-5 rounded-xl border border-border">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center"><Clock className="text-gold" /></div>
@@ -127,26 +128,7 @@ function Contact() {
         </div>
       </section>
 
-      <section className="bg-surface py-20">
-        <div className="container-pw">
-          <div className="text-center mb-8">
-            <span className="label-accent">Find Us</span>
-            <h2 className="text-3xl md:text-4xl mt-3 text-navy">Based in Canada — Serving Worldwide</h2>
-          </div>
-          <div className="rounded-3xl overflow-hidden shadow-2xl border border-border">
-            <iframe
-              title="Prime Wave Agency location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.7952466750515!2d-79.38318492346663!3d43.64255507110458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d68bf33a9b%3A0x15edd8c4de1bc7e9!2sToronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sca!4v1699564732456!5m2!1sen!2sca"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      </section>
+      <FiverrSection />
     </>
   );
 }
